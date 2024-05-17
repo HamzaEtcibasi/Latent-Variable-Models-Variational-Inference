@@ -18,9 +18,7 @@ Like in Fig 1. suppose we want to generate an image of a dog. We know that dogs 
 
 The Mixture of Gaussians (MoG) model is a probabilistic model that assumes data points are generated from a mixture of several Gaussian distributions. Each Gaussian distribution represents a cluster or component within the overall data distribution. This model is often used for clustering and density estimation.
 
-## Bayes Net Representation
-
-In a Mixture of Gaussians model, we have a latent variable \( z \) that determines which Gaussian component a data point belongs to. The generative process can be represented as a simple Bayesian network:
+In a Mixture of Gaussians model, we have a latent variable \( z \) that determines which Gaussian component a data point belongs to. The generative process can be represented as a simple Bayesian network: z → x 
 
 
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
