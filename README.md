@@ -11,8 +11,7 @@ Like in Fig 1. suppose we want to generate an image of a dog. We know that dogs 
 - **Motivation Behind Using Latent Variable Models**
 
 ## 2. Types of Latent Variables
-#### 2.1 Mixture of Gaussians
-- **A Shallow Latent Variable Model**
+#### 2.1 Mixture of Gaussians: A Shallow Latent Variable Model
 
 The Mixture of Gaussians (MoG) model is a probabilistic model that assumes data points are generated from a mixture of several Gaussian distributions. Each Gaussian distribution represents a cluster or component within the overall data distribution. This model is often used for clustering and density estimation.
 
