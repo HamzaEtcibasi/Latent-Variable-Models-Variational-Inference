@@ -1,9 +1,7 @@
 # Latent Variable Models & Variational Inference
 Topic Summary for CENG796 by Enes Şanlı &amp; Hamza Etcibaşı
 
-## Outline
-
-### 1. Introduction and Motivation
+## 1. Introduction and Motivation
 - **What are Latent Variable Models (LVMs)?**
 Latent Variable Models (LVMs) are statistical models that include variables that are not directly observed but are inferred from other variables that are observed (measured). These unobserved variables are termed "latent variables." LVMs are used to model complex phenomena where the observed data is believed to be generated from underlying factors that are not directly measurable.
 ![Örnek resim](img1.png "Fig 1. Latent Variables")
@@ -27,11 +25,11 @@ Here:
 
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
 
-#### 2.2 Variational Autoencoders (VAEs)
+## 2.2 Variational Autoencoders (VAEs)
 - **Explanation of VAEs as a Generative Model**
 - **Difference Between Deterministic and Stochastic Latent Representations**
 
-### 3. Inference and Marginal Probability
+## 3. Inference and Marginal Probability
 #### 3.1 Marginal Likelihood
 - **Importance of Marginal Likelihood in Variational Probabilistic Modeling**
 
@@ -44,7 +42,7 @@ Here:
 - **Introduction to ELBO as an Objective Function in VAEs**
 - **ELBO’s Role in Variational Inference and Model Training**
 
-### 4. Learning Latent Variable Models
+## 4. Learning Latent Variable Models
 #### 4.1 Stochastic Variational Inference (SVI)
 - **Explanation of SVI and Its Role in Approximate Inference**
 
@@ -54,12 +52,12 @@ Here:
 #### 4.3 Amortized Inference
 - **Introduction to Amortization Techniques for Efficient Inference in VAEs**
 
-### 5. Autoencoder Perspective
+## 5. Autoencoder Perspective
 #### 5.1 Comparing VAE with Traditional Autoencoders
 - **Contrast Between VAEs and Standard Autoencoders in Representation Learning**
 - **Advantages of VAEs in Generating Diverse and Meaningful Samples**
 
-### 6. Conclusion
+## 6. Conclusion
 - **Summary of Key Concepts Covered in the Discussion of Latent Variable Models**
 - **Pros and Cons of Latent Variable Models**
 - **Future Directions and Challenges in the Field of Latent Variable Modeling**
