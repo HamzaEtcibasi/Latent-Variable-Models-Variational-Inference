@@ -23,7 +23,7 @@ Here:
 
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
 
-## 2.2 Variational Autoencoders (VAEs)
+#### 2.2 Variational Autoencoders (VAEs)
 - **Explanation of VAEs as a Generative Model**
 - **Difference Between Deterministic and Stochastic Latent Representations**
 
