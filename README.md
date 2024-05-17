@@ -37,6 +37,8 @@ Here:
    \( p(x \mid z = k) = \mathcal{N}(x \mid \mu_k, \Sigma_k) \)
    </p>
 
+BU KISMA DEVAM EDECEĞİM YARIN
+
 
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
 
