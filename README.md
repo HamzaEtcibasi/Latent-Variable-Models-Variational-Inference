@@ -13,8 +13,8 @@ Like in Fig 1. suppose we want to generate an image of a dog. We know that dogs 
 - **Motivation Behind Using Latent Variable Models**
 
 ### 2. Types of Latent Variables
-#### 2.1 Mixture Models
-- **Introduction to Mixture of Gaussians Models**
+#### 2.1 Mixture of Gaussians
+- **A Shallow Latent Variable Model**
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
 
 #### 2.2 Variational Autoencoders (VAEs)
