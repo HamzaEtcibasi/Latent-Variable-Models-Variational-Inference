@@ -21,6 +21,9 @@ Here:
 - \(z\) is the latent variable.
 - \(x\) is the observed data.
 
+![Örnek resim](mog.png "Fig 2. Mixture of Gaussians")
+
+
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
 
 #### 2.2 Variational Autoencoders (VAEs)
