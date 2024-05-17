@@ -20,6 +20,10 @@ The Mixture of Gaussians (MoG) model is a probabilistic model that assumes data 
 
 In a Mixture of Gaussians model, we have a latent variable \(z\) that determines which Gaussian component a data point belongs to. The generative process can be represented as a simple Bayesian network: z → x 
 
+Here:
+- \(z\) is the latent variable.
+- \(x\) is the observed data.
+
 
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
 
