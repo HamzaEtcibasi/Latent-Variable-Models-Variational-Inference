@@ -27,16 +27,15 @@ Here:
 
 1. **Select a Gaussian component:**
    - Sample \( z \) from a categorical distribution with \( K \) components.
-   $$
-   z \sim \text{Categorical}(1, \ldots, K)
-   $$
+   <p align="center">
+   \( z \sim \text{Categorical}(1, \ldots, K) \)
+   </p>
 
 2. **Generate a data point:**
    - Given \( z = k \), sample \( x \) from the corresponding Gaussian distribution.
-   $$
-   p(x \mid z = k) = \mathcal{N}(x \mid \mu_k, \Sigma_k)
-   $$
-
+   <p align="center">
+   \( p(x \mid z = k) = \mathcal{N}(x \mid \mu_k, \Sigma_k) \)
+   </p>
 
 
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
