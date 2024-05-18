@@ -36,6 +36,8 @@ Here:
         $p(x \mid z = k) = \mathcal{N}(x \mid \mu_k, \Sigma_k)$
    </p>
 
+When training a Mixture of Gaussians model, we start with like a single Gaussian fit. As training progresses, assuming the distribution isn't too complex and we have a good estimate for the number of clusters, the model performs effective clustering. Similar points end up with similar z estimates, resulting in soft clustering. This approach is also useful in unsupervised learning.
+
 By following these steps, the Mixture of Gaussians model generates data points that can represent complex, multimodal distributions through the combination of multiple Gaussian components.
 
 
