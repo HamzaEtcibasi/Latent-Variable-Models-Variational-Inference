@@ -132,7 +132,7 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 Suppose we are working with an image during the training phase where the pixel values in the upper half are missing, and our goal is to reconstruct the original image. Let $X$ be our observed random variables, and $Z$ be our unobserved random variables. We have a joint model that utilizes these $Z$. We can express this model as $P(X,Z;θ)$, where $X$ represents the observed variables, $Z$ represents the unobserved random variables, and $θ$ denotes the weights of our model.  
 
 <p align="center">
-    <img src="images/048" alt="Fig 5. Figure" title="Fig 5. Figure" width="100%">
+    <img src="images/048.png" alt="Fig 5. Figure" title="Fig 5. Figure" width="100%">
 </p>
 
 Can we determine the value of $P(X=x;θ)$ in this manner?  
