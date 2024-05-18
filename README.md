@@ -209,6 +209,13 @@ Performing stochastic variational inference can be costly. At each training stag
 
 This process requires extensive gradient descent on the variational parameters just to make a single gradient update on the model parameters, which is very costly. The solution to this problem is called **amortized inference**.
 
+### Amortization
+To address this, we introduce amortized inference. Instead of learning individual variational parameters for each data point, we learn a single parametric function $f_\lambda$ that maps each $x_i$ to a set of variational parameters $\phi_i$. This is akin to performing regression from $x_i$ to $\phi_i^*$.
+
+For instance, if $q(z|x_i)$ are Gaussians with different means $\mu_1, \cdots, \mu_m$, we learn a single neural network $f_\lambda$ that maps $x_i$ to $\mu_i$. We then use this function to approximate the posteriors $q(z|x_i)$ using the distribution $q_\lambda(z|x)$.
+
+Amortized inference thus scales efficiently to large datasets by sharing parameters across all data points through the learned function $f_\lambda$.
+
 <br/><br/>
 # 5. Autoencoder Perspective
 ## 5.1 Comparing VAE with Traditional Autoencoders
