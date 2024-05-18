@@ -180,7 +180,7 @@ So we need to clever way to select $Z_j$.
 
 ### Importance Sampling
 
-Now let's try another way, remember our equation: $$p_{θ}(x) = \sum_{z} p_{θ}(x,z)$$  
+Now let's try another way, remember our equation: $p_{θ}(x) = \sum_{z} p_{θ}(x,z)$  
 We can add some terms to this equation with preserving the equation, so introduce this term: $$\frac{q(z)}{q(z)}$$  
 Then our equation will be: $$p_{θ}(x) = \sum_{z} p_{θ}(x,z) = \sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)$$  
 Now, we can convert this equation to an expected value term: $$\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z) = E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}]$$  
