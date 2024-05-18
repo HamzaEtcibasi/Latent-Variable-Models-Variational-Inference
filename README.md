@@ -2,7 +2,7 @@
 Topic Summary for CENG796 by Enes Şanlı &amp; Hamza Etcibaşı
 
 # 1. Introduction and Motivation
-- **What are Latent Variable Models (LVMs)?**
+## What are Latent Variable Models (LVMs)?
 Latent Variable Models (LVMs) are statistical models that include variables that are not directly observed but are inferred from other variables that are observed (measured). These unobserved variables are termed "latent variables." LVMs are used to model complex phenomena where the observed data is believed to be generated from underlying factors that are not directly measurable.  
 In terms of a mathematical explanation, Latent Variable Models aim to obtain the observed data $X$ by utilizing the latent variables $Z$. This is because directly finding $P(X)$ is more challenging compared to finding $P(X∣Z)$. Hence, LVMs generally exploit the following equality: $P(X)=P(X∣Z)⋅P(Z)$
 
@@ -10,15 +10,15 @@ In terms of a mathematical explanation, Latent Variable Models aim to obtain the
   <img src="images/047.png" alt="Fig 1. Latent Variables" title="Fig 1. Latent Variables" width="60%">
 </p>
 
-- **Importance and Applications in Machine Learning and Statistics**
+## Importance and Applications in Machine Learning and Statistics
 LVMs play a crucial role in various fields within machine learning and statistics due to their ability to model complex and high-dimensional data in a more interpretable and compact form. Some key applications include:
-    - **Dimensionality Reduction:** Techniques like PCA reduce the number of variables under consideration, making the data easier to visualize and analyze while retaining its essential properties.
-    - **Data Imputation:** LVMs can be used to estimate missing values in datasets by leveraging the relationships between observed and latent variables.
-    - **Clustering:** Models like GMMs are used for identifying subgroups within data by assuming that data points belong to different latent clusters.
-    - **Time Series Analysis:** HMMs and other sequential LVMs are essential for modeling and predicting time-dependent phenomena in fields like speech recognition, finance, and bioinformatics.
-    - **Topic Modeling:** LDA is widely used in natural language processing to uncover the hidden thematic structure in large text corpora.
+- **Dimensionality Reduction:** Techniques like PCA reduce the number of variables under consideration, making the data easier to visualize and analyze while retaining its essential properties.
+- **Data Imputation:** LVMs can be used to estimate missing values in datasets by leveraging the relationships between observed and latent variables.
+- **Clustering:** Models like GMMs are used for identifying subgroups within data by assuming that data points belong to different latent clusters.
+- **Time Series Analysis:** HMMs and other sequential LVMs are essential for modeling and predicting time-dependent phenomena in fields like speech recognition, finance, and bioinformatics.
+- **Topic Modeling:** LDA is widely used in natural language processing to uncover the hidden thematic structure in large text corpora.
  
-- **Motivation Behind Using Latent Variable Models**
+## Motivation Behind Using Latent Variable Models
 
 <p align="center">
   <img src="images/img1.png" alt="Fig 2. Latent Variables Models" title="Fig 2. Latent Variables Models" width="60%">
