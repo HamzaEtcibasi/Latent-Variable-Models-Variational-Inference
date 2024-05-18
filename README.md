@@ -91,8 +91,33 @@ Let the latent variable $z$ be drawn from a standard Gaussian distribution: $z \
 We define the conditional distribution of $x$ given $z$ using neural networks: $p(x | z) = \mathcal{N}(\mu_{\theta}(z), \Sigma_{\theta}(z))$, where $\mu_{\theta}$ and $\Sigma_{\theta}$ are neural networks parameterized by $\theta$.
 
 This formulation enables us to model complex relationships within the data by learning the parameters of the neural networks $\mu_{\theta}$ and $\Sigma_{\theta}$, allowing for a flexible and adaptive representation of the underlying data distribution.
-
+<br/><br/>
 - **Difference Between Deterministic and Stochastic Latent Representations**
+**In deterministic latent representations**, each input is mapped to a single, fixed latent representation. This mapping is entirely deterministic, meaning that given the same input and model parameters, the resulting latent representation will always be the same. We can think of it as a straightforward one-to-one mapping where each input corresponds to a specific encoded representation.
+<p align="center">
+    $$ z = f(x) $$
+</p>
+Here, `$ z $` represents the deterministic latent representation, and `$ f(x) $` denotes the deterministic mapping function from input `$ x $` to latent representation `$ z $`.
+
+Deterministic latent representations are commonly employed in traditional autoencoders and similar models. While they provide a simple and deterministic way to encode information, they may struggle to capture the inherent variability and uncertainty present in real-world data.
+
+In contrast, **stochastic latentr epresentations** introduce randomness or stochasticity into the mapping from input to latent representation. Rather than producing a single fixed value, the mapping generates a probability distribution over possible latent representations. This distribution captures the uncertainty and variability inherent in the data, allowing for more flexible and expressive representations.
+
+<p align="center">
+    $$ z \sim p(z \mid x) $$
+</p>
+
+Here, `$ z $` represents the stochastic latent representation sampled from the distribution `$ p(z \mid x) $`, which is conditioned on the input data `$ x $`.
+
+Variational Autoencoders (VAEs) are a prime example of models that leverage stochastic latent representations. In VAEs, the encoder network outputs the parameters of a probability distribution (e.g., mean and variance) instead of a fixed value. The latent representation is then sampled from this distribution, introducing randomness into the encoding process.
+
+### Conclusion
+
+Deterministic and stochastic latent representations offer distinct approaches to encoding information in machine learning models. While deterministic representations provide simplicity and determinism, stochastic representations capture uncertainty and variability, enabling more robust and expressive representations.
+
+Understanding the differences between these two types of latent representations is essential for choosing the appropriate model architecture and addressing the specific requirements of a given task.
+
+
 <br/><br/>
 ## 3. Inference and Marginal Probability
 #### 3.1 Marginal Likelihood
