@@ -127,10 +127,10 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 ## 3.3 Evidence Lower Bound (ELBO)
 ### Introduction to ELBO as an Objective Function in VAEs
 <p align="center">
-  <img src="images/ae.png" alt="Fig 4. Autoencoder Architecture" title="Fig 5. Autoencoder Architecture" width="35%">
+  <img src="images/ae.png" alt="Fig 4. Autoencoder Architecture" title="Fig 5. Autoencoder Architecture" width="70%">
 </p>
 <p align="center">
-  <img src="images/vae.png" alt="Fig 5. Variational Autoencoder" title="Fig 5. Variational Autoencoder" width="35%">
+  <img src="images/vae.png" alt="Fig 5. Variational Autoencoder" title="Fig 5. Variational Autoencoder" width="70%">
 </p>
 
 ### ELBO’s Role in Variational Inference and Model Training
