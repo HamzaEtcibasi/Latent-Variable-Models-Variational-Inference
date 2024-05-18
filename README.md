@@ -9,7 +9,7 @@ Like in Fig 1. suppose we want to generate an image of a dog. We know that dogs 
 
 - **Importance and Applications in Machine Learning and Statistics**
 - **Motivation Behind Using Latent Variable Models**
-
+<br/><br/>
 ## 2. Mixture Models
 #### 2.1 Mixture of Gaussians: A Shallow Latent Variable Model
 
