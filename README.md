@@ -1,7 +1,7 @@
 # Latent Variable Models & Variational Inference
 Topic Summary for CENG796 by Enes Şanlı &amp; Hamza Etcibaşı
 
-## 1. Introduction and Motivation
+# 1. Introduction and Motivation
 - **What are Latent Variable Models (LVMs)?**
 Latent Variable Models (LVMs) are statistical models that include variables that are not directly observed but are inferred from other variables that are observed (measured). These unobserved variables are termed "latent variables." LVMs are used to model complex phenomena where the observed data is believed to be generated from underlying factors that are not directly measurable.
 ![img1.png](images/img1.png "Fig 1. Latent Variables")
@@ -10,8 +10,8 @@ Like in Fig 1. suppose we want to generate an image of a dog. We know that dogs 
 - **Importance and Applications in Machine Learning and Statistics**
 - **Motivation Behind Using Latent Variable Models**
 <br/><br/>
-## 2. Mixture Models
-#### 2.1 Mixture of Gaussians: A Shallow Latent Variable Model
+# 2. Mixture Models
+## 2.1 Mixture of Gaussians: A Shallow Latent Variable Model
 
 The Mixture of Gaussians (MoG) model is a probabilistic model that assumes data points are generated from a mixture of several Gaussian distributions. Each Gaussian distribution represents a cluster or component within the overall data distribution. This model is often used for clustering and density estimation.
 
@@ -74,7 +74,7 @@ The Mixture of Gaussians (MoG) model is a versatile and powerful tool in various
 
 By leveraging these advantages, the Mixture of Gaussians model is a powerful tool for understanding and analyzing complex data distributions. **However**, the Mixture of Gaussians model has its limitations. It can be sensitive to initialization, making it prone to local optima. Determining the optimal number of components is challenging, and the model assumes Gaussian distributions, which may not always fit the data accurately. Additionally, computational complexity increases with data dimensionality, and overfitting can occur. Despite these challenges, the model remains valuable for understanding complex data distributions.
 <br/><br/>
-#### 2.2 Variational Autoencoders (VAEs)
+## 2.2 Variational Autoencoders (VAEs)
 - **VAEs as a Generative Model**
 
 While the Gaussian distribution may seem simple on its own, the combination of multiple Gaussians can introduce complexity. Consider a scenario where we possess latent factors indicating whether a data point belongs to a certain Gaussian. In such cases, the conditional distribution given these latent factors, denoted as $p(x|k)$, becomes much simpler compared to the original distribution $p(x)$. Although the original distribution might be complex, given the latent factor of each data point, the conditional distribution needed to fit that latent factor would be comparatively simpler. However, since we lack knowledge of these latent factors, the challenge lies in discovering them concurrently while learning these conditional distributions.
@@ -115,31 +115,29 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 **Variational Autoencoders (VAEs)** are a prime example of models that leverage stochastic latent representations. In VAEs, the encoder network outputs the parameters of a probability distribution (e.g., mean and variance) instead of a fixed value. The latent representation is then sampled from this distribution, introducing randomness into the encoding process.
 
 <br/><br/>
-## 3. Inference and Marginal Probability
+# 3. Inference and Marginal Probability
 #### 3.1 Marginal Likelihood
 - **Importance of Marginal Likelihood in Variational Probabilistic Modeling**
 
-#### 3.2 Sampling Techniques
+## 3.2 Sampling Techniques
 - **Overview of Monte Carlo Methods for Estimating Marginal Probabilities:**
   - Naive Monte Carlo
   - Importance Sampling
 
-#### 3.3 Evidence Lower Bound (ELBO)
+## 3.3 Evidence Lower Bound (ELBO)
 - **Introduction to ELBO as an Objective Function in VAEs**
 - **ELBO’s Role in Variational Inference and Model Training**
 <br/><br/>
-## 4. Learning Latent Variable Models
-#### 4.1 Stochastic Variational Inference (SVI)
-
-# Learning via Stochastic Variational Inference (SVI)
+# 4. Learning Latent Variable Models
+## 4.1 Learning via Stochastic Variational Inference (SVI)
 
 Stochastic Variational Inference (SVI) is a technique used to optimize a probability distribution $P$ over some latent variables given observed data $D$. Let's break down of how it works:
 
-## Optimization Objective
+### Optimization Objective
 
 The goal is to optimize the likelihood function $L(x_i; \theta, \phi_i)$ as a function of model parameters $\theta$ and variational parameters $\phi_1, ..., \phi_M$. We use stochastic gradient descent to achieve this optimization.
 
-## Likelihood Function
+### Likelihood Function
 
 The likelihood function is defined as:
 
@@ -147,7 +145,7 @@ $$L(x_i; \theta, \phi_i) = \sum_{z} q(z; \phi_i) \log p(z, x_i; \theta) + H(q(z;
 
 where $q(z; \phi_i)$ is the variational distribution over latent variables $z$, $p(z, x_i; \theta)$ is the joint distribution of latent variables and observed data, and $H(q(z; \phi_i))$ is the entropy of the variational distribution.
 
-## Optimization Steps
+### Optimization Steps
 
 1. **Initialization**: Initialize model parameters $\theta$ and variational parameters $\phi_1, ..., \phi_M$.
 2. **Sampling**: Randomly sample a data point $x_i$ from the dataset $D$.
@@ -155,12 +153,12 @@ where $q(z; \phi_i)$ is the variational distribution over latent variables $z$, 
 4. **Update Model Parameters**: Compute the gradient of $L(x_i; \theta, \phi_i^*)$ with respect to $\theta$ and update $\theta$ in the gradient direction.
 5. **Repeat**: Repeat steps 2-4 until convergence.
 
-## Gradients Computation
+### Gradient Computation
 
 - **Gradient with respect to $\theta$**: Compute the gradient using Monte Carlo sampling to estimate the expectation.
 - **Gradient with respect to $\phi$**: This is more complex as the expectation depends on $\phi$. We still use Monte Carlo sampling for estimation, but with a trick called **the reparametrization trick**.
 
-## Key Assumption
+### Key Assumption
 
 The variational distribution $q(z; \phi)$ is tractable, meaning it's **easy to sample** from and evaluate.
 
@@ -209,12 +207,12 @@ This technique enables efficient computation of gradients with respect to the va
 ## 4.3 Amortized Inference
 - **Introduction to Amortization Techniques for Efficient Inference in VAEs**
 <br/><br/>
-## 5. Autoencoder Perspective
-#### 5.1 Comparing VAE with Traditional Autoencoders
+# 5. Autoencoder Perspective
+## 5.1 Comparing VAE with Traditional Autoencoders
 - **Contrast Between VAEs and Standard Autoencoders in Representation Learning**
 - **Advantages of VAEs in Generating Diverse and Meaningful Samples**
 <br/><br/>
-## 6. Conclusion
+# 6. Conclusion
 - **Summary of Key Concepts Covered in the Discussion of Latent Variable Models**
 - **Pros and Cons of Latent Variable Models**
 - **Future Directions and Challenges in the Field of Latent Variable Modeling**
