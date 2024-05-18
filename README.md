@@ -133,36 +133,36 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 
 # Learning via Stochastic Variational Inference (SVI)
 
-Stochastic Variational Inference (SVI) is a technique used to optimize a probability distribution \( P \) over some latent variables given observed data \( D \). Here's a breakdown of how it works:
+Stochastic Variational Inference (SVI) is a technique used to optimize a probability distribution $P$ over some latent variables given observed data $D$. Here's a breakdown of how it works:
 
 ## Optimization Objective
 
-The goal is to optimize the likelihood function \( L(x_i; \theta, \phi_i) \) as a function of model parameters \( \theta \) and variational parameters \( \phi_1, ..., \phi_M \). We use (stochastic) gradient descent to achieve this optimization.
+The goal is to optimize the likelihood function $L(x_i; \theta, \phi_i)$ as a function of model parameters $\theta$ and variational parameters $\phi_1, ..., \phi_M$. We use (stochastic) gradient descent to achieve this optimization.
 
 ## Likelihood Function
 
 The likelihood function is defined as:
 
-\[ L(x_i; \theta, \phi_i) = \sum_{z} q(z; \phi_i) \log p(z, x_i; \theta) + H(q(z; \phi_i)) \]
+$$L(x_i; \theta, \phi_i) = \sum_{z} q(z; \phi_i) \log p(z, x_i; \theta) + H(q(z; \phi_i))$$
 
-where \( q(z; \phi_i) \) is the variational distribution over latent variables \( z \), \( p(z, x_i; \theta) \) is the joint distribution of latent variables and observed data, and \( H(q(z; \phi_i)) \) is the entropy of the variational distribution.
+where $q(z; \phi_i)$ is the variational distribution over latent variables $z$, $p(z, x_i; \theta)$ is the joint distribution of latent variables and observed data, and $H(q(z; \phi_i))$ is the entropy of the variational distribution.
 
 ## Optimization Steps
 
-1. **Initialization**: Initialize model parameters \( \theta \) and variational parameters \( \phi_1, ..., \phi_M \).
-2. **Sampling**: Randomly sample a data point \( x_i \) from the dataset \( D \).
-3. **Variational Inference**: Optimize \( L(x_i; \theta, \phi_i) \) with respect to \( \phi_i \) using gradient ascent until convergence.
-4. **Update Model Parameters**: Compute the gradient of \( L(x_i; \theta, \phi_i^*) \) with respect to \( \theta \) and update \( \theta \) in the gradient direction.
+1. **Initialization**: Initialize model parameters $\theta$ and variational parameters $\phi_1, ..., \phi_M$.
+2. **Sampling**: Randomly sample a data point $x_i$ from the dataset $D$.
+3. **Variational Inference**: Optimize $L(x_i; \theta, \phi_i)$ with respect to $\phi_i$ using gradient ascent until convergence.
+4. **Update Model Parameters**: Compute the gradient of $L(x_i; \theta, \phi_i^*)$ with respect to $\theta$ and update $\theta$ in the gradient direction.
 5. **Repeat**: Repeat steps 2-4 until convergence.
 
 ## Gradients Computation
 
-- **Gradient with respect to \( \theta \)**: Compute the gradient using Monte Carlo sampling to estimate the expectation.
-- **Gradient with respect to \( \phi \)**: This is more complex as the expectation depends on \( \phi \). We still use Monte Carlo sampling for estimation, but a more specific technique called REINFORCE may be introduced later.
+- **Gradient with respect to $\theta$**: Compute the gradient using Monte Carlo sampling to estimate the expectation.
+- **Gradient with respect to $\phi$**: This is more complex as the expectation depends on \( \phi \). We still use Monte Carlo sampling for estimation, but a more specific technique called REINFORCE may be introduced later.
 
 ## Key Assumption
 
-The variational distribution \( q(z; \phi) \) is tractable, meaning it's easy to sample from and evaluate.
+The variational distribution $q(z; \phi)$ is tractable, meaning it's easy to sample from and evaluate.
 
 This approach allows us to learn latent variable models efficiently by iteratively optimizing model parameters and variational parameters using stochastic gradient descent.
 
