@@ -260,6 +260,11 @@ In contrast, a Variational Autoencoder (VAE) incorporates probabilistic principl
 - The first term encourages the reconstructed output $\hat{x}$ to resemble the input $x$ by minimizing the reconstruction error.
 - The second term encourages the latent representation $z$ to follow a prior distribution $p(z)$, promoting a well-structured latent space.
 
+**Inference Stage:**
+   - Given an input $x$, the recognition network (variational encoder) produces parameters $\phi$.
+   - Using the reparameterization trick, $z$ is sampled from the inferred distribution.
+   - $z$ is then fed into the generator (decoder network) to reconstruct $\hat{x}$.
+
 <p align="center">
   <img src="images/vae.png" alt="Fig 7. Variational Autoencoder" title="Fig 7. Variational Autoencoder" width="60%">
 </p>
