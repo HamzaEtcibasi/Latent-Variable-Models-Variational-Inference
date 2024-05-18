@@ -245,9 +245,12 @@ This approach leverages amortized inference to efficiently optimize the model pa
 # 5. Autoencoder Perspective
 ## 5.1 Comparing VAE with Traditional Autoencoders
 ### Contrast Between VAEs and Standard Autoencoders in Representation Learning
+In a standard autoencoder, the architecture involves an encoder that maps input images $x$ to a latent space representation $z$, followed by a decoder that reconstructs the input image. This setup aims to minimize the reconstruction error between the original input and the reconstructed output. We illustrate the autoencoder architecture below:
 <p align="center">
   <img src="images/ae.png" alt="Fig 6. Autoencoder Architecture" title="Fig 6. Autoencoder Architecture" width="60%">
 </p>
+
+asdasd asd asd 
 <p align="center">
   <img src="images/vae.png" alt="Fig 7. Variational Autoencoder" title="Fig 7. Variational Autoencoder" width="60%">
 </p>
