@@ -250,7 +250,10 @@ In a standard autoencoder, the architecture involves an encoder that maps input 
   <img src="images/ae.png" alt="Fig 6. Autoencoder Architecture" title="Fig 6. Autoencoder Architecture" width="60%">
 </p>
 
-asdasd asd asd 
+In contrast, a Variational Autoencoder (VAE) incorporates probabilistic principles into the autoencoder framework. The VAE introduces a recognition network (variational encoder) and a generator network (variational decoder). Here's how it works:
+**Training Objective**:
+- $L(x; \theta, \phi) = \mathbb{E}_{q_{\phi}(z|x)}[\log p(x|z; \theta)] - D_{KL}(q_{\phi}(z|x)||p(z))$
+
 <p align="center">
   <img src="images/vae.png" alt="Fig 7. Variational Autoencoder" title="Fig 7. Variational Autoencoder" width="60%">
 </p>
