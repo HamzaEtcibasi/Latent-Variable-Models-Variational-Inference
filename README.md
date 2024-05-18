@@ -6,7 +6,9 @@ Topic Summary for CENG796 by Enes Şanlı &amp; Hamza Etcibaşı
 Latent Variable Models (LVMs) are statistical models that include variables that are not directly observed but are inferred from other variables that are observed (measured). These unobserved variables are termed "latent variables." LVMs are used to model complex phenomena where the observed data is believed to be generated from underlying factors that are not directly measurable.  
 In terms of a mathematical explanation, Latent Variable Models aim to obtain the observed data $X$ by utilizing the latent variables $Z$. This is because directly finding $P(X)$ is more challenging compared to finding $P(X∣Z)$. Hence, LVMs generally exploit the following equality: $P(X)=P(X∣Z)⋅P(Z)$
 
-![img1.png](images/047.png "Fig 1. Latent Variables")
+<p align="center">
+  <img src="images/047.png" alt="Fig 1. Latent Variables" title="Fig Latent Variables" width="60%">
+</p>
 
 - **Importance and Applications in Machine Learning and Statistics**
 LVMs play a crucial role in various fields within machine learning and statistics due to their ability to model complex and high-dimensional data in a more interpretable and compact form. Some key applications include:
@@ -17,10 +19,12 @@ LVMs play a crucial role in various fields within machine learning and statistic
     - **Topic Modeling:** LDA is widely used in natural language processing to uncover the hidden thematic structure in large text corpora.
  
 - **Motivation Behind Using Latent Variable Models**
-  
-![img1.png](images/img1.png "Fig 1. Latent Variables")
 
-Like in Fig 1. suppose we want to generate an image of a dog. We know that dogs have certain features, such as color, breed, and size. However, can we limit these features? Or can we identify every feature for each image? The answer to this question is, of course, no. A single image can have an infinite number of latent features, and it is impossible for us to identify all of them accurately. However, if we can learn the most important of these features, we can use them to generate images much more easily. This is because estimating probability distributions based on an image's features is much easier than estimating from a complete probability distribution. This logic is the motivation behind Latent Variable Models. 
+<p align="center">
+  <img src="images/img1.png" alt="Fig 1. Latent Variables Models" title="Fig Latent Variables Models" width="60%">
+</p>
+
+Like in Fig 2. suppose we want to generate an image of a dog. We know that dogs have certain features, such as color, breed, and size. However, can we limit these features? Or can we identify every feature for each image? The answer to this question is, of course, no. A single image can have an infinite number of latent features, and it is impossible for us to identify all of them accurately. However, if we can learn the most important of these features, we can use them to generate images much more easily. This is because estimating probability distributions based on an image's features is much easier than estimating from a complete probability distribution. This logic is the motivation behind Latent Variable Models. 
 <br/><br/>
 # 2. Mixture Models
 ## 2.1 Mixture of Gaussians: A Shallow Latent Variable Model
