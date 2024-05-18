@@ -24,6 +24,7 @@ Here:
 <p align="center">
   <img src="images/mog.png" alt="Fig 2. Mixture of Gaussians" title="Fig 2. Mixture of Gaussians" width="40%">
 </p>
+
 #### Generative Process
 
 1. **Select a Gaussian component:**
