@@ -162,7 +162,7 @@ where $q(z; \phi_i)$ is the variational distribution over latent variables $z$, 
 
 ## Key Assumption
 
-The variational distribution $q(z; \phi)$ is tractable, meaning it's easy to sample from and evaluate.
+The variational distribution $q(z; \phi)$ is tractable, meaning it's **easy to sample** from and evaluate.
 
 This approach allows us to learn latent variable models efficiently by iteratively optimizing model parameters and variational parameters using stochastic gradient descent.
 
@@ -206,7 +206,7 @@ In our context of learning latent variable models, where the expectation depends
 This technique enables efficient computation of gradients with respect to the variational parameters $\phi$, facilitating the optimization of latent variable models.
 
 
-#### 4.3 Amortized Inference
+## 4.3 Amortized Inference
 - **Introduction to Amortization Techniques for Efficient Inference in VAEs**
 <br/><br/>
 ## 5. Autoencoder Perspective
