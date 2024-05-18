@@ -112,14 +112,7 @@ In contrast, __stochastic latent representations__ introduce randomness or stoch
 
 Here, $z$ represents the stochastic latent representation sampled from the distribution $p(z \mid x)$, which is conditioned on the input data $x$.
 
-Variational Autoencoders (VAEs) are a prime example of models that leverage stochastic latent representations. In VAEs, the encoder network outputs the parameters of a probability distribution (e.g., mean and variance) instead of a fixed value. The latent representation is then sampled from this distribution, introducing randomness into the encoding process.
-
-### Conclusion
-
-Deterministic and stochastic latent representations offer distinct approaches to encoding information in machine learning models. While deterministic representations provide simplicity and determinism, stochastic representations capture uncertainty and variability, enabling more robust and expressive representations.
-
-Understanding the differences between these two types of latent representations is essential for choosing the appropriate model architecture and addressing the specific requirements of a given task.
-
+**Variational Autoencoders (VAEs)** are a prime example of models that leverage stochastic latent representations. In VAEs, the encoder network outputs the parameters of a probability distribution (e.g., mean and variance) instead of a fixed value. The latent representation is then sampled from this distribution, introducing randomness into the encoding process.
 
 <br/><br/>
 ## 3. Inference and Marginal Probability
