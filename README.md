@@ -480,5 +480,5 @@ Latent variable models are powerful but come with computational and methodologic
 
 <br/><br/>
 # Acknowledgements
-We followed the slides by Stefano Ermon and Aditya Grover when preparing this topic summary. For more information, visit [Deep Generative Models](https://deepgenerativemodels.github.io/).
+We followed the slides by Stefano Ermon and Aditya Grover when preparing this topic summary. For more information, visit [Deep Generative Models](https://deepgenerativemodels.github.io/). Additionally, [Chat Gpt-3.5](https://chatgpt.com/) was used to correct grammatical errors and misunderstandings.
 
