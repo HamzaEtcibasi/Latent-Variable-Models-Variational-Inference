@@ -25,11 +25,10 @@ Here:
 
 #### Generative Process
 
-This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 1. **Select a Gaussian component:**
    - Sample \( z \) from a categorical distribution with \( K \) components.
    <p align="center">
-  $`\( z \sim \text{Categorical}(1, \ldots, K) \)`$
+        $`(z \sim \text{Categorical}(1, \ldots, K))`$
    </p>
 
 2. **Generate a data point:**
