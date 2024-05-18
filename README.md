@@ -126,13 +126,6 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 
 ## 3.3 Evidence Lower Bound (ELBO)
 ### Introduction to ELBO as an Objective Function in VAEs
-<p align="center">
-  <img src="images/ae.png" alt="Fig 4. Autoencoder Architecture" title="Fig 5. Autoencoder Architecture" width="70%">
-</p>
-<p align="center">
-  <img src="images/vae.png" alt="Fig 5. Variational Autoencoder" title="Fig 5. Variational Autoencoder" width="70%">
-</p>
-
 ### ELBO’s Role in Variational Inference and Model Training
 <br/><br/>
 # 4. Learning Latent Variable Models
@@ -192,9 +185,9 @@ Let's assume $q(z; \phi) = \mathcal{N}(\mu, \sigma^2 I)$ is Gaussian with parame
 
 So, we compute the expectation by integrating over $\epsilon$ after transforming into $z$ using $g(\epsilon; \phi)$.
 
-We illustrate the idea in Figure 6. in 1-D case, and the trick works in multi-dimensional case as well:
+We illustrate the idea in Figure 4. in 1-D case, and the trick works in multi-dimensional case as well:
 <p align="center">
-  <img src="images/reparam_trick.png" alt="Fig 6. Reparametrization Trick" title="Fig 4. Reparametrization Trick" width="80%">
+  <img src="images/reparam_trick.png" alt="Fig 4. Reparametrization Trick" title="Fig 4. Reparametrization Trick" width="80%">
 </p>
 
 
@@ -225,7 +218,7 @@ Amortized inference thus scales efficiently to large datasets by sharing paramet
 
 We visualize the process showing the differences between with/without amortization below:
 <p align="center">
-  <img src="images/amortization.png" alt="Fig 7. With/Without Amortization" title="Fig 7. With/Without Amortization" width="35%">
+  <img src="images/amortization.png" alt="Fig 5. With/Without Amortization" title="Fig 5. With/Without Amortization" width="35%">
 </p>
 
 ## 4.3 Learning with Amortized Inference
@@ -252,6 +245,12 @@ This approach leverages amortized inference to efficiently optimize the model pa
 # 5. Autoencoder Perspective
 ## 5.1 Comparing VAE with Traditional Autoencoders
 ### Contrast Between VAEs and Standard Autoencoders in Representation Learning
+<p align="center">
+  <img src="images/ae.png" alt="Fig 6. Autoencoder Architecture" title="Fig 6. Autoencoder Architecture" width="70%">
+</p>
+<p align="center">
+  <img src="images/vae.png" alt="Fig 7. Variational Autoencoder" title="Fig 7. Variational Autoencoder" width="70%">
+</p>
 ### Advantages of VAEs in Generating Diverse and Meaningful Samples
 <br/><br/>
 # 6. Conclusion
