@@ -168,7 +168,46 @@ This approach allows us to learn latent variable models efficiently by iterative
 
 
 #### 4.2 Reparameterization Trick
-- **Detailed Explanation of Reparameterization for Continuous Latent Variables**
+## 4.2 Reparameterization Trick
+
+The reparameterization trick is a clever technique used in stochastic variational inference to compute gradients with respect to the parameters $\phi$ when dealing with continuous latent variables. Let's break down how it works:
+
+### Gradient Computation Objective
+
+We aim to compute the gradient with respect to $\phi$ of the expectation:
+
+$\mathbb{E}_{z \sim q(z; \phi)} [r(z)] = \int q(z; \phi) \, r(z) \, dz$
+
+where $z$ is continuous and follows a Gaussian distribution $\mathcal{N}(\mu, \sigma^2 I)$ with parameters $\phi = (\mu, \sigma)$.
+
+### Equivalence in Sampling
+
+We exploit an equivalence in sampling:
+- Sampling $z \) directly from \( q_{\phi}(z)$.
+- Sampling $\epsilon \) from \( \mathcal{N}(0, I)$ and transforming it into $z = \mu + \sigma \epsilon = g(\epsilon; \phi)$.
+
+### Computing Expectation
+
+We compute the expectation using two equivalent methods:
+1. Integrating over $z$ directly.
+2. Integrating over $\epsilon$ after transforming into $z$ using $g(\epsilon; \phi)$.
+
+### Gradient Estimation
+
+Using the reparameterization trick, we can compute the gradient with respect to $\phi$ as follows:
+- Compute the gradient of the expectation with respect to $\phi$ by applying the chain rule.
+- Utilize Monte Carlo sampling to estimate the gradient if $r$ and \( g \) are differentiable with respect to $\phi$ and $\epsilon$ is easy to sample from.
+
+### Variance Reduction
+
+The gradient estimate using the reparameterization trick typically exhibits much lower variance compared to methods like REINFORCE.
+
+### Practical Implementation
+
+In our context of learning latent variable models, where the expectation depends on both $z$ and $\phi$, we can still employ the reparameterization trick by assuming $z = \mu + \sigma \epsilon = g(\epsilon; \phi)$. Then, we estimate the expectation as a Monte Carlo average over samples of $\epsilon$.
+
+This technique enables efficient computation of gradients with respect to the variational parameters $\phi$, facilitating the optimization of latent variable models.
+
 
 #### 4.3 Amortized Inference
 - **Introduction to Amortization Techniques for Efficient Inference in VAEs**
