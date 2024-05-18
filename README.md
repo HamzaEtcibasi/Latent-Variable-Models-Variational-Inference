@@ -94,7 +94,7 @@ Define the conditional distribution of $x$ given $z$ using neural networks: $p(x
 This formulation enables us to model complex relationships within the data by learning the parameters of the neural networks $\mu_{\theta}$ and $\Sigma_{\theta}$, allowing for a flexible and adaptive representation of the underlying data distribution.
 
 - **Difference Between Deterministic and Stochastic Latent Representations**
-
+<br/><br/>
 ## 3. Inference and Marginal Probability
 #### 3.1 Marginal Likelihood
 - **Importance of Marginal Likelihood in Variational Probabilistic Modeling**
@@ -107,7 +107,7 @@ This formulation enables us to model complex relationships within the data by le
 #### 3.3 Evidence Lower Bound (ELBO)
 - **Introduction to ELBO as an Objective Function in VAEs**
 - **ELBO’s Role in Variational Inference and Model Training**
-
+<br/><br/>
 ## 4. Learning Latent Variable Models
 #### 4.1 Stochastic Variational Inference (SVI)
 - **Explanation of SVI and Its Role in Approximate Inference**
@@ -117,12 +117,12 @@ This formulation enables us to model complex relationships within the data by le
 
 #### 4.3 Amortized Inference
 - **Introduction to Amortization Techniques for Efficient Inference in VAEs**
-
+<br/><br/>
 ## 5. Autoencoder Perspective
 #### 5.1 Comparing VAE with Traditional Autoencoders
 - **Contrast Between VAEs and Standard Autoencoders in Representation Learning**
 - **Advantages of VAEs in Generating Diverse and Meaningful Samples**
-
+<br/><br/>
 ## 6. Conclusion
 - **Summary of Key Concepts Covered in the Discussion of Latent Variable Models**
 - **Pros and Cons of Latent Variable Models**
