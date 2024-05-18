@@ -172,7 +172,7 @@ In this way, we have made our model tractable. But does this approach serve our 
 Of course, No, because for most $Z$, $p_{θ}(x,z)$ is very low. So, most of Z states don't make sense. Some are very large but when we sampling the probabilty of hitting this state is very low.  
 For example, suppose we want to generate an image of a girl. Some of our latent features might be hair color and eye color. However, there are many possible colors, and it is highly improbable for a girl to have both red eyes and red hair. In contrast, it is more likely for a girl to have brown hair and brown eyes. In our approximation, these two probabilities are treated as equal, which is not very realistic. Now, assume we sampling features and getting equation like that :
 <p align="center">
-$\sum_{z} p_{θ}(x,z) =  p_{θ}(x,red hair , red eyes) +  p_{θ}(x, red hair , purple eyes) +  p_{θ}(x,red hair, white eyes) + ... +  p_{θ}(x,white hair, orange eyes) $
+$$\sum_{z} p_{θ}(x,z) =  p_{θ}(x,red hair , red eyes) +  p_{θ}(x, red hair , purple eyes) +  p_{θ}(x,red hair, white eyes) + ... +  p_{θ}(x,white hair, orange eyes) $$
 </p>
 In the sampling mentioned above, for instance, the probability of nearly all terms is close to zero, indicating that we have failed to capture important latent features. This is the reason why this approximation, while theoretically sound, does not work in practice.
 
@@ -183,7 +183,7 @@ So we need to clever way to select $Z_j$.
 Now let's try another way, remember our equation: $p_{θ}(x) = \sum_{z} p_{θ}(x,z)$  
 We can add some terms to this equation with preserving the equation, so introduce this term: $\frac{q(z)}{q(z)}$  
 Then our equation will be: $p_{θ}(x) = \sum_{z} p_{θ}(x,z) = \sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)$  
-Now, we can convert this equation to an expected value term: $\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z) = E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}]$  
+Now, we can convert this equation to an expected value term: $$\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z) = E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}]$$  
 But, why we do that?  
 The main intution is that, in previous sections we select $Z$ terms from Uniform sampling, but now we sampling $Z$ from $q(z)$. In this way, our $q(z)$ behaves like frequency term. And our $q(z)$ can be anything. For all $q(z)$ the equation holds.  
 Now, we use again Naive Monte Carlo, the equation will be like that:
@@ -199,7 +199,7 @@ Finally we have a method for clever selecting z (latent variables), but what sho
 
 Now, let's take log of previous equation
 
-  $\log (\sum_{z} p(x,z)) = \log (\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)) = \log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])$  
+  $$\log (\sum_{z} p(x,z)) = \log (\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)) = \log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])$$  
 
 With this, we now have an additional feature. We know that the logarithm is a concave function, which means it satisfies Jensen's Inequality. What does this imply and how can we use it?
 
@@ -217,7 +217,7 @@ Now, how can we use this?
 
 Let put $f(z) = \frac{p_{θ}(x,z)}{q(z)}$, then the equation will be:
 <p align="center">
-$\log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])  \geq (E_{z \sim q(z)}[\log (\frac{p_{θ}(x,z)}{q(z)})]$
+$$\log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])  \geq (E_{z \sim q(z)}[\log (\frac{p_{θ}(x,z)}{q(z)})]$$
 </p>
  When we look this equation, the first term will not change, it is always equals to $p_{θ}(x,z)$, the value of $q(z)$ is not important, it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term. Because it likes constant.
  
