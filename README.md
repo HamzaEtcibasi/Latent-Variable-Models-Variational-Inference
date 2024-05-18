@@ -52,20 +52,15 @@ The Mixture of Gaussians (MoG) model is a versatile and powerful tool in various
 
 #### **Use Cases**
 
-1. **Clustering:**
-   - MoG is commonly used for clustering data into groups. Each Gaussian component can be seen as representing a cluster, allowing for effective identification of subpopulations within the data.
+1. **Clustering:** MoG is commonly used for clustering data into groups. Each Gaussian component can be seen as representing a cluster, allowing for effective identification of subpopulations within the data.
    
-2. **Density Estimation:**
-   - It is useful for estimating the probability density function of a dataset, especially when the data distribution is complex and multimodal (having multiple peaks).
+2. **Density Estimation:** It is useful for estimating the probability density function of a dataset, especially when the data distribution is complex and multimodal (having multiple peaks).
 
-3. **Anomaly Detection:**
-   - By modeling the normal data distribution with MoG, points that fall in low-probability regions can be identified as anomalies or outliers.
+3. **Anomaly Detection:** By modeling the normal data distribution with MoG, points that fall in low-probability regions can be identified as anomalies or outliers.
 
-4. **Image Segmentation:**
-   - In image processing, MoG can be used to segment images by clustering pixels based on color or intensity values.
+4. **Image Segmentation:** In image processing, MoG can be used to segment images by clustering pixels based on color or intensity values.
 
-5. **Speech and Signal Processing:**
-   - MoG is applied in modeling different sound patterns or signals, aiding in tasks like speaker identification or noise reduction.
+5. **Speech and Signal Processing:** MoG is applied in modeling different sound patterns or signals, aiding in tasks like speaker identification or noise reduction.
 
 #### **Advantages**
 
