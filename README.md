@@ -79,17 +79,19 @@ For instance, if we have $Z$ latent features, even if each of them is binary, th
 
 #### 3.2 Sampling Techniques
 - **Overview of Monte Carlo Methods for Estimating Marginal Probabilities:**
-  - Naive Monte Carlo  
+  - Naive Monte Carlo
+ 
 As mentioned in the previous section, we need to make an approximation. This approximation will make our formula tractable. Specifically, we will use the Naive Monte Carlo method to make this      formula tractable. Let's rewrite $p(x)$. We have:
 <p align="center">
-$P_{θ}(x) = \sum_{z} p_{θ}(x,z) = |Z|\sum_{z} \frac{1}{|Z|}p_{θ}(x,z)$
+$P_{θ}(x) = \sum_{z} p_{θ}(x,z) = |Z|\sum_{z} \frac{1}{|Z|}p_{θ}(x,z) = |Z| E_{z \sim Uniform(z)}[p_{θ}(x,z)]$
 </p>
 Thus, we have transformed our model into an expectation. However, this expectation is still intractable. To address this, we will use the Naive Monte Carlo method. Our assumption is that these latent features are uniformly distributed. By sampling, we will find an average expectation, i.e.,
 <p align="center">
 $\sum_{z} p_{θ}(x,z) = |Z| \frac{1}{k} \sum_{j=1} p_{θ}(x,z_j)$
 </p>
 In this way, we have made our model tractable. But does this approach serve our purpose?
-Of course, **No**, because for most $Z$, $p_{θ}(x,z)$ is very low. So, most of Z states don't make sense. Some are very large but when we sampling the probabilty of hitting this state is very low.  
+
+Of course, No, because for most $Z$, $p_{θ}(x,z)$ is very low. So, most of Z states don't make sense. Some are very large but when we sampling the probabilty of hitting this state is very low.  
 For example, suppose we want to generate an image of a girl. Some of our latent features might be hair color and eye color. However, there are many possible colors, and it is highly improbable for a girl to have both red eyes and red hair. In contrast, it is more likely for a girl to have brown hair and brown eyes. In our approximation, these two probabilities are treated as equal, which is not very realistic. Now, assume we sampling features and getting equation like that :
 <p align="center">
 $\sum_{z} p_{θ}(x,z) =  p_{θ}(x,red hair , red eyes) +  p_{θ}(x, red hair , purple eyes) +  p_{θ}(x,red hair, white eyes) + ... +  p_{θ}(x,white hair, orange eyes) $
@@ -99,8 +101,35 @@ In the sampling mentioned above, for instance, the probability of nearly all ter
 So we need to clever way to select $Z_j$.
   - Importance Sampling
 
+Now let's try another way, remember our equation: $p_{θ}(x) = \sum_{z} p_{θ}(x,z)$  
+We can add some terms to this equation with preserving the equation, so introduce this term: $\frac{q(z)}{q(z)}$  
+Then our equation will be: $p_{θ}(x) = \sum_{z} p_{θ}(x,z) = \sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)$  
+Now, we can convert this equation to an expected value term: $\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z) = E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}]$  
+But, why we do that?  
+The main intution is that, in previous sections we select $Z$ terms from Uniform sampling, but now we sampling $Z$ from $q(z)$. In this way, our $q(z)$ behaves like frequency term. And our $q(z)$ can be anything. For all $q(z)$ the equation holds.  
+Now, we use again Naive Monte Carlo, the equation will be like that:
+
+<p align="center">
+$p_{θ}(x) =  \frac{1}{k} \sum_{j=1}\frac{p_{θ}(x,z^{j})}{q(z^{j})}$
+</p>
+
+Finally we have a method for clever selecting z (latent variables), but what should be $q(z)$? The answer is in the upcoming section.
+
 #### 3.3 Evidence Lower Bound (ELBO)
 - **Introduction to ELBO as an Objective Function in VAEs**
+  
+Now, let's take log of previous equation
+
+  $\log (\sum_{z} p(x,z)) = \log (\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)) = \log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])$  
+
+With this, we now have an additional feature. We know that the logarithm is a concave function, which means it satisfies Jensen's Inequality. What does this imply and how can we use it?
+
+First, let's recall Jensen's Inequality. For concave functions, 
+
+$\log ( t*x_1 + (1-t)*x_2) \geq t* \log (x_1) + (1-t)* \log (x_2)$
+<p align="center">
+$\log ( t*x_1 + (1-t)*x_2) \geq t* \log (x_1) + (1-t)* \log (x_2)$
+</p>
 - **ELBO’s Role in Variational Inference and Model Training**
 
 ## 4. Learning Latent Variable Models
