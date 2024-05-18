@@ -127,7 +127,7 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 **Variational Autoencoders (VAEs)** are a prime example of models that leverage stochastic latent representations. In VAEs, the encoder network outputs the parameters of a probability distribution (e.g., mean and variance) instead of a fixed value. The latent representation is then sampled from this distribution, introducing randomness into the encoding process.
 
 <br/><br/>
-## 3. Inference and Marginal Probability
+# 3. Inference and Marginal Probability
 
 Suppose we are working with an image during the training phase where the pixel values in the upper half are missing, and our goal is to reconstruct the original image. Let $X$ be our observed random variables, and $Z$ be our unobserved random variables. We have a joint model that utilizes these $Z$. We can express this model as $P(X,Z;θ)$, where $X$ represents the observed variables, $Z$ represents the unobserved random variables, and $θ$ denotes the weights of our model.  
 
@@ -137,7 +137,7 @@ Suppose we are working with an image during the training phase where the pixel v
 Can we determine the value of $P(X=x;θ)$ in this manner?  
 Mathematically, yes, we can. However, the process to find this can be expressed as follows: $\sum_{z}P(X=x,Z=z;θ)$, meaning we need to perform this operation for all possible values of $Z$. While this is theoretically possible, it is practically infeasible. This is because, even for a binary image, there are $2^Z$ possible states.
 
-#### 3.1 Marginal Likelihood
+## 3.1 Marginal Likelihood
 - **Importance of Marginal Likelihood in Variational Probabilistic Modeling**
 
 Can we solve this problem using Maximum Log-Likelihood?  
@@ -154,7 +154,7 @@ Is it possible to compute this?
 
 For instance, if we have $Z$ latent features, even if each of them is binary, there are $2^Z$ possible states, making this computation intractable and preventing us from calculating the gradients. This is because the number of possible states grows exponentially with the number of latent features. To solve this, we need to use an **approximation**.
 
-#### 3.2 Sampling Techniques
+## 3.2 Sampling Techniques
 
 ### Naive Monte Carlo
 
