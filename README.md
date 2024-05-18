@@ -38,7 +38,7 @@ Here:
 - \(x\) is the observed data.
 
 <p align="center">
-  <img src="images/mog.png" alt="Fig 2. Mixture of Gaussians" title="Fig 2. Mixture of Gaussians" width="37%">
+  <img src="images/mog.png" alt="Fig 3. Mixture of Gaussians" title="Fig 3. Mixture of Gaussians" width="37%">
 </p>
 
 #### Generative Process
@@ -57,7 +57,7 @@ Here:
 
 When training a Mixture of Gaussians model, we start with like a single Gaussian fit. As training progresses, assuming the distribution isn't too complex and we have a good estimate for the number of clusters, the model performs effective clustering. Similar points end up with similar z estimates, resulting in soft clustering. This approach is also useful in unsupervised learning. The approach is illustrated in Fig 3. below:
 <p align="center">
-  <img src="images/mog2.png" alt="Fig 3. Mixture of 3 Gaussians" title="Fig 3. Mixture of 3 Gaussians" width="70%">
+  <img src="images/mog2.png" alt="Fig 4. Mixture of 3 Gaussians" title="Fig 4. Mixture of 3 Gaussians" width="70%">
 </p>
 
 By following these steps, the Mixture of Gaussians model generates data points that can represent complex, multimodal distributions through the combination of multiple Gaussian components.
@@ -136,7 +136,7 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 Suppose we are working with an image during the training phase where the pixel values in the upper half are missing, and our goal is to reconstruct the original image. Let $X$ be our observed random variables, and $Z$ be our unobserved random variables. We have a joint model that utilizes these $Z$. We can express this model as $P(X,Z;θ)$, where $X$ represents the observed variables, $Z$ represents the unobserved random variables, and $θ$ denotes the weights of our model.  
 
 <p align="center">
-    <img src="images/048.png" alt="Fig 5. Figure" title="Fig 5. Figure" width="40%">
+    <img src="images/048.png" alt="Fig 5. Figure" title="Fig 5. Figure Marginal Likelihood" width="40%">
 </p>
 
 Can we determine the value of $P(X=x;θ)$ in this manner?  
@@ -228,8 +228,10 @@ $$\log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])  \geq (E_{z \sim q(z)}[\log (
 </p>
 
 When we look this equation, the first term will not change, it is always equals to $p_{θ}(x,z)$, the value of $q(z)$ is not important, it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term. Because it likes constant.
- 
-![img1.png](images/049.png "Figure")
+
+<p align="center">
+  <img src="images/049.png" alt="Fig 6. Evidence Lower Bound" title="Fig 6. Evidence Lower Bound" width="60%">
+</p>
 
 Like in this figure, we try to maximize second term, and because of first term behaves like a constant we can minimize the difference between actual $p_{θ}(x,z)$ and approximated $p_{θ}(x,z)$
 
