@@ -191,7 +191,7 @@ So, we compute the expectation by integrating over $\epsilon$ after transforming
 
 Using the reparameterization trick, we can compute the gradient with respect to $\phi$ as follows:
 - Compute the gradient of the expectation with respect to $\phi$ by applying the chain rule.
-- Utilize Monte Carlo sampling to estimate the gradient if $r$ and $g$ are differentiable with respect to $\phi$ and $\epsilon$ is easy to sample from.
+- Use Monte Carlo sampling to estimate the gradient if $r$ and $g$ are differentiable with respect to $\phi$ and $\epsilon$ is easy to sample from.
 
 ### Practical Implementation
 
