@@ -64,20 +64,15 @@ The Mixture of Gaussians (MoG) model is a versatile and powerful tool in various
 
 #### **Advantages**
 
-1. **Flexibility:**
-   - MoG can model a wide range of data distributions by combining multiple Gaussian components, making it suitable for complex datasets.
+1. **Flexibility:** MoG can model a wide range of data distributions by combining multiple Gaussian components, making it suitable for complex datasets.
 
-2. **Soft Clustering:**
-   - Unlike hard clustering methods, MoG provides soft clustering where each data point has a probability of belonging to each cluster, offering more nuanced insights.
+2. **Soft Clustering:** Unlike hard clustering methods, MoG provides soft clustering where each data point has a probability of belonging to each cluster, offering more nuanced insights.
 
-3. **Scalability:**
-   - MoG can be scaled to handle large datasets and high-dimensional data, making it practical for real-world applications.
+3. **Scalability:** MoG can be scaled to handle large datasets and high-dimensional data, making it practical for real-world applications.
 
-4. **Interpretability:**
-   - The parameters of the Gaussian components (mean and covariance) provide meaningful information about the data structure, aiding interpretability.
+4. **Interpretability:** The parameters of the Gaussian components (mean and covariance) provide meaningful information about the data structure, aiding interpretability.
 
-5. **Probabilistic Framework:**
-   - Being a probabilistic model, MoG allows for uncertainty quantification and principled statistical inference.
+5. **Probabilistic Framework:** Being a probabilistic model, MoG allows for uncertainty quantification and principled statistical inference.
 
 By leveraging these advantages, the Mixture of Gaussians model is a powerful tool for understanding and analyzing complex data distributions.
 
