@@ -28,7 +28,7 @@ Here:
 1. **Select a Gaussian component:**
    - Sample \( z \) from a categorical distribution with \( K \) components.
    <p align="center">
-        $`(z \sim \text{Categorical}(1, \ldots, K))`$
+        $(z \sim \text{Categorical}(1, \ldots, K))$
    </p>
 
 2. **Generate a data point:**
