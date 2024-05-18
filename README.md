@@ -57,12 +57,46 @@ By following these steps, the Mixture of Gaussians model generates data points t
 - **Difference Between Deterministic and Stochastic Latent Representations**
 
 ## 3. Inference and Marginal Probability
+Suppose we are working with an image during the training phase where the pixel values in the upper half are missing, and our goal is to reconstruct the original image. Let $X$ be our observed random variables, and $Z$ be our unobserved random variables. We have a joint model that utilizes these $Z$. We can express this model as $P(X,Z;θ)$, where $X$ represents the observed variables, $Z$ represents the unobserved random variables, and $θ$ denotes the weights of our model.  
+Can we determine the value of $P(X=x;θ)$ in this manner?  
+Mathematically, yes, we can. However, the process to find this can be expressed as follows: $\sum_{z}P(X=x,Z=z;θ)$, meaning we need to perform this operation for all possible values of $Z$. While this is theoretically possible, it is practically infeasible. This is because, even for a binary image, there are $2^Z$ possible states.
+
 #### 3.1 Marginal Likelihood
-- **Importance of Marginal Likelihood in Variational Probabilistic Modeling**
+- **Importance of Marginal Likelihood in Variational Probabilistic Modeling**  
+Can we solve this problem using Maximum Log-Likelihood?  
+Suppose we have a dataset $D$ where for each datapoint our $X$ variables (pixel values) are observed and $Z$ variables are unobserved (e.g., class, etc.).  
+Our maximum log-likelihood is given by:
+<p align="center">
+$\log \prod_{D} P(x;θ)$
+</p>
+which we can express using latent variables as:
+<p align="center">
+$\log \prod_{D} P(x;θ) = \sum_{D} \log P(x;θ) = \sum_{D} \log \sum_{z} P(x,z;θ)$
+</p>
+Is it possible to compute this?
+
+For instance, if we have $Z$ latent features, even if each of them is binary, there are $2^Z$ possible states, making this computation intractable and preventing us from calculating the gradients. This is because the number of possible states grows exponentially with the number of latent features. To solve this, we need to use an **approximation**.
 
 #### 3.2 Sampling Techniques
 - **Overview of Monte Carlo Methods for Estimating Marginal Probabilities:**
-  - Naive Monte Carlo
+  - Naive Monte Carlo  
+As mentioned in the previous section, we need to make an approximation. This approximation will make our formula tractable. Specifically, we will use the Naive Monte Carlo method to make this      formula tractable. Let's rewrite $p(x)$. We have:
+<p align="center">
+$P_{θ}(x) = \sum_{z} p_{θ}(x,z) = |Z|\sum_{z} \frac{1}{|Z|}p_{θ}(x,z)$
+</p>
+Thus, we have transformed our model into an expectation. However, this expectation is still intractable. To address this, we will use the Naive Monte Carlo method. Our assumption is that these latent features are uniformly distributed. By sampling, we will find an average expectation, i.e.,
+<p align="center">
+$\sum_{z} p_{θ}(x,z) = |Z| \frac{1}{k} \sum_{j=1} p_{θ}(x,z_j)$
+</p>
+In this way, we have made our model tractable. But does this approach serve our purpose?
+Of course, **No**, because for most $Z$, $p_{θ}(x,z)$ is very low. So, most of Z states don't make sense. Some are very large but when we sampling the probabilty of hitting this state is very low.  
+For example, suppose we want to generate an image of a girl. Some of our latent features might be hair color and eye color. However, there are many possible colors, and it is highly improbable for a girl to have both red eyes and red hair. In contrast, it is more likely for a girl to have brown hair and brown eyes. In our approximation, these two probabilities are treated as equal, which is not very realistic. Now, assume we sampling features and getting equation like that :
+<p align="center">
+$\sum_{z} p_{θ}(x,z) =  p_{θ}(x,red hair , red eyes) +  p_{θ}(x, red hair , purple eyes) +  p_{θ}(x,red hair, white eyes) + ... +  p_{θ}(x,white hair, orange eyes) $
+</p>
+In the sampling mentioned above, for instance, the probability of nearly all terms is close to zero, indicating that we have failed to capture important latent features. This is the reason why this approximation, while theoretically sound, does not work in practice.
+
+So we need to clever way to select $Z_j$.
   - Importance Sampling
 
 #### 3.3 Evidence Lower Bound (ELBO)
