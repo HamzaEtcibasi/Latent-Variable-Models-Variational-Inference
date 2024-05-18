@@ -133,7 +133,7 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 
 # Learning via Stochastic Variational Inference (SVI)
 
-Stochastic Variational Inference (SVI) is a technique used to optimize a probability distribution $P$ over some latent variables given observed data $D$. Here's a breakdown of how it works:
+Stochastic Variational Inference (SVI) is a technique used to optimize a probability distribution $P$ over some latent variables given observed data $D$. Let's break down of how it works:
 
 ## Optimization Objective
 
@@ -180,10 +180,9 @@ $\mathbb{E}_{z \sim q(z; \phi)} [r(z)] = \int q(z; \phi) \, r(z) \, dz$
 where $z$ is continuous and follows a Gaussian distribution $\mathcal{N}(\mu, \sigma^2 I)$ with parameters $\phi = (\mu, \sigma)$.
 
 ### Equivalence in Sampling
-
-We exploit an equivalence in sampling:
-- Sampling $z \) directly from \( q_{\phi}(z)$.
-- Sampling $\epsilon \) from \( \mathcal{N}(0, I)$ and transforming it into $z = \mu + \sigma \epsilon = g(\epsilon; \phi)$.
+Let's assume $q(z; \phi) = \mathcal{N}(\mu, \sigma^2 I)$ is Gaussian with parameters $\phi = (\mu, \sigma)$. Using the equivalance, we can:
+- Sample $z$ directly from $q_{\phi}(z)$.
+- Sample $\epsilon$ from $\mathcal{N}(0, I)$ and transforming it into $z = \mu + \sigma \epsilon = g(\epsilon; \phi)$.
 
 ### Computing Expectation
 
@@ -195,11 +194,7 @@ We compute the expectation using two equivalent methods:
 
 Using the reparameterization trick, we can compute the gradient with respect to $\phi$ as follows:
 - Compute the gradient of the expectation with respect to $\phi$ by applying the chain rule.
-- Utilize Monte Carlo sampling to estimate the gradient if $r$ and \( g \) are differentiable with respect to $\phi$ and $\epsilon$ is easy to sample from.
-
-### Variance Reduction
-
-The gradient estimate using the reparameterization trick typically exhibits much lower variance compared to methods like REINFORCE.
+- Utilize Monte Carlo sampling to estimate the gradient if $r$ and $g$ are differentiable with respect to $\phi$ and $\epsilon$ is easy to sample from.
 
 ### Practical Implementation
 
