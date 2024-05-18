@@ -4,7 +4,7 @@ Topic Summary for CENG796 by Enes Şanlı &amp; Hamza Etcibaşı
 ## 1. Introduction and Motivation
 - **What are Latent Variable Models (LVMs)?**
 Latent Variable Models (LVMs) are statistical models that include variables that are not directly observed but are inferred from other variables that are observed (measured). These unobserved variables are termed "latent variables." LVMs are used to model complex phenomena where the observed data is believed to be generated from underlying factors that are not directly measurable.
-![./images/img1.png](img1.png "Fig 1. Latent Variables")
+![img1.png](images/img1.png "Fig 1. Latent Variables")
 Like in Fig 1. suppose we want to generate an image of a dog. We know that dogs have certain features, such as color, breed, and size. However, can we limit these features? Or can we identify every feature for each image? The answer to this question is, of course, no. A single image can have an infinite number of latent features, and it is impossible for us to identify all of them accurately. However, if we can learn the most important of these features, we can use them to generate images much more easily. This is because estimating probability distributions based on an image's features is much easier than estimating from a complete probability distribution. This logic is the motivation behind Latent Variable Models.
 
 - **Importance and Applications in Machine Learning and Statistics**
