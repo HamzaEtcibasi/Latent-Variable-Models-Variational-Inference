@@ -24,7 +24,7 @@ LVMs play a crucial role in various fields within machine learning and statistic
   <img src="images/img1.png" alt="Fig 2. Latent Variables Models" title="Fig 2. Latent Variables Models" width="60%">
 </p>
 
-Like in Fig 2. suppose we want to generate an image of a dog. We know that dogs have certain features, such as color, breed, and size. However, can we limit these features? Or can we identify every feature for each image? The answer to this question is, of course, no. A single image can have an infinite number of latent features, and it is impossible for us to identify all of them accurately. However, if we can learn the most important of these features, we can use them to generate images much more easily. This is because estimating probability distributions based on an image's features is much easier than estimating from a complete probability distribution. This logic is the motivation behind Latent Variable Models. 
+Like in Fig 2. suppose we want to generate an image of a dog. We know that dogs have certain features, such as color, breed, and size. However, can we limit these features? Or can we identify every feature for each image? The answer to this question is of course no. A single image can have an infinite number of latent features, and it is impossible for us to identify all of them accurately. However, if we can learn the most important of these features, we can use them to generate images much more easily. This is because estimating probability distributions based on an image's features is much easier than estimating from a complete probability distribution. This logic is the motivation behind Latent Variable Models. 
 <br/><br/>
 # 2. Mixture Models
 ## 2.1 Mixture of Gaussians: A Shallow Latent Variable Model
@@ -180,7 +180,7 @@ $$\sum_{z} p_{θ}(x,z) =  p_{θ}(x,red hair , red eyes) +  p_{θ}(x, red hair , 
 </p>
 In the sampling mentioned above, for instance, the probability of nearly all terms is close to zero, indicating that we have failed to capture important latent features. This is the reason why this approximation, while theoretically sound, does not work in practice.
 
-So we need to clever way to select $Z_j$.
+So we need a clever way to select $Z_j$.
 
 ### Importance Sampling
 
@@ -192,14 +192,14 @@ We can add some terms to this equation with preserving the equation, so introduc
 Then our equation will be: $$p_{θ}(x) = \sum_{z} p_{θ}(x,z) = \sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)$$  
 Now, we can convert this equation to an expected value term: $$\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z) = E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}]$$  
 But, why we do that?  
-The main intution is that, in previous sections we select $Z$ terms from Uniform sampling, but now we sampling $Z$ from $q(z)$. In this way, our $q(z)$ behaves like frequency term. And our $q(z)$ can be anything. For all $q(z)$ the equation holds.  
-Now, we use again Naive Monte Carlo, the equation will be like that:
+The main intuition is that, in previous sections we selected $Z$ terms from Uniform sampling, but now we are sampling $Z$ from $q(z)$. In this way, our $q(z)$ behaves like a frequency term. And our $q(z)$ can be anything. For all $q(z)$, the equation holds.  
+Now, we use the Naive Monte Carlo method again. The equation will be like this:
 
 <p align="center">
 $$p_{θ}(x) =  \frac{1}{k} \sum_{j=1}\frac{p_{θ}(x,z^{j})}{q(z^{j})}$$
 </p>
 
-Finally we have a method for clever selecting z (latent variables), but what should be $q(z)$? The answer is in the upcoming section.
+Finally, we have a method for cleverly selecting z (latent variables), but what should be $q(z)$? The answer is in the upcoming section.
 
 ## 3.3 Evidence Lower Bound (ELBO)
 ### Introduction to ELBO as an Objective Function in VAEs
@@ -222,12 +222,12 @@ $$\log (E_{z \sim q(z)}[f(z)]) = \log (\sum_{z} q(z)f(z)) \geq \sum_{z} q(z) \lo
 
 Now, how can we use this?
 
-Let put $f(z) = \frac{p_{θ}(x,z)}{q(z)}$, then the equation will be:
+Let us put $f(z) = \frac{p_{θ}(x,z)}{q(z)}$, then the equation will be:
 <p align="center">
 $$\log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])  \geq (E_{z \sim q(z)}[\log (\frac{p_{θ}(x,z)}{q(z)})]$$
 </p>
 
-When we look this equation, the first term will not change, it is always equals to $p_{θ}(x,z)$, the value of $q(z)$ is not important, it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term. Because it likes constant.
+When we look at this equation, the first term will not change; it always equals $p_{θ}(x,z)$. The value of $q(z)$ is not important; it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term because it behaves like a constant.
 
 <p align="center">
   <img src="images/049.png" alt="Fig 6. Evidence Lower Bound" title="Fig 6. Evidence Lower Bound" width="70%">
@@ -253,7 +253,7 @@ $$\log (p(x))  \geq \sum_{z} q(z) \log (p_{θ}(x,z)) - q(z) \log (q(z))$$
 </p>
 
 ### ELBO’s Role in Variational Inference and Model Training
-As mentioned previous sections, equation holds for all $q(z)$ terms. So let's choose $q = p(z|x;θ)$. Because it makes sense: Sample the most "explanatory" z values.
+As mentioned in previous sections, equation holds for all $q(z)$ terms. So, let's choose $q = p(z|x;θ)$ because it makes sense to sample the most "explanatory" z values.
 
 Also using this terms give us equality instead of greater equal. Let's look at the equation with $q = p(z|x;θ)$ term.
 
@@ -273,7 +273,7 @@ $$\sum_{z} p(z|x;θ) \log (p(x;θ)) =  \log (p(x;θ)) \sum_{z} p(z|x;θ)$$
 $$\log (p(x;θ)) \sum_{z} p(z|x;θ) = \log (p(x;θ))$$
 </p>
 
-So, the best $q(z)$ is $p(z|x;θ)$, but what happens if we choose different $q(z)$, can we measure how bad this $q(z)$ ?
+So, the best $q(z)$ is $p(z|x;θ)$, but what happens if we choose different $q(z)$, can we measure how bad this $q(z)$ is?
 
 The answer is:
 
@@ -302,7 +302,7 @@ So, using KL divergence we can simply calculate the error of our $q(z)$
   <img src="images/049.png" alt="Fig 7. Evidence Lower Bound" title="Fig 7. Evidence Lower Bound" width="70%">
 </p>
 
-Now, if we look at the figure we mentioned earlier, and the equation we found lastly: $\log (p(x)) = ELBO + KL[q(z) || p(z|x)]$, we can find a way for finding good $q(z)$. In figure the blue line represents our ELBO, while the red line represents our $\log (p(x))$ value. The difference between them gives us our KL divergence. However, the KL divergence is not tractable, and as we mentioned earlier, the $p(x)$ value is constant. Therefore, instead of minimizing the KL divergence, if we try to maximize the ELBO value, we will achieve the same result—minimizing the KL divergence and thus approximating our $p(x)$ value.
+Now, if we look at the figure we mentioned earlier, and the equation we found lastly: $\log (p(x)) = ELBO + KL[q(z) || p(z|x)]$, we can find a way for finding good $q(z)$. In the figure, the blue line represents our ELBO, while the red line represents our $\log (p(x))$ value. The difference between them gives us KL divergence. However, the KL divergence is not tractable, and as we mentioned earlier, the $p(x)$ value is constant. Therefore, instead of minimizing the KL divergence, if we try to maximize the ELBO value, we will achieve the same result—minimizing the KL divergence and thus approximating our $p(x)$ value.
 
 <br/><br/>
 # 4. Learning Latent Variable Models
@@ -360,7 +360,7 @@ Let's assume $q(z; \phi) = \mathcal{N}(\mu, \sigma^2 I)$ is Gaussian with parame
 - Sample $z$ directly from $q_{\phi}(z)$.
 - **or equivalently** Sample $\epsilon$ from $\mathcal{N}(0, I)$ and transforming it into $z = \mu + \sigma \epsilon = g(\epsilon; \phi)$.
 
-So, we compute the expectation by integrating over $\epsilon$ after transforming into $z$ using $g(\epsilon; \phi)$.
+Thus, we compute the expectation by integrating over $\epsilon$ after transforming into $z$ using $g(\epsilon; \phi)$.
 
 We illustrate the idea in Figure 8. in 1-D case, and the trick works in multi-dimensional case as well:
 <p align="center">
@@ -378,7 +378,7 @@ Using the reparameterization trick, we can compute the gradient with respect to 
 
 In our context of learning latent variable models, where the expectation depends on both $z$ and $\phi$, we can still employ the reparameterization trick by assuming $z = \mu + \sigma \epsilon = g(\epsilon; \phi)$. Then, we estimate the expectation as a Monte Carlo average over samples of $\epsilon$.
 
-This technique enables efficient computation of gradients with respect to the variational parameters $\phi$, facilitating the optimization of latent variable models.
+This technique enables efficient computation of gradients with respect to the variational parameters $\phi$, thereby facilitating the optimization of latent variable models.
 
 
 ## 4.3 Amortized Inference
