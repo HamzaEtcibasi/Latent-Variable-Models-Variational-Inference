@@ -221,6 +221,23 @@ We visualize the process showing the differences between with/without amortizati
   <img src="images/amortization.png" alt="Fig 5. With/Without Amortization" title="Fig 5. With/Without Amortization" width="35%">
 </p>
 
+## 4.3 Learning with Amortized Inference
+
+In amortized inference, we optimize $\sum_{x_i \in D} L(x_i; \theta, \phi)$ as a function of $\theta$ and $\phi$ using stochastic gradient descent. The likelihood function is defined as:
+
+$L(x; \theta, \phi) = \sum_z q_\phi(z|x) \log p(z, x; \theta) + H(q_\phi(z|x)) = \mathbb{E}_{q_\phi(z|x)} [\log p(z, x; \theta) - \log q_\phi(z|x)]$
+
+### Optimization Steps
+
+1. **Initialization**: Initialize $\theta^{(0)}$ and $\phi^{(0)}$.
+2. **Sampling**: Randomly sample a data point $x_i$ from $D$.
+3. **Gradient Computation**: Compute $\nabla_\theta L(x_i; \theta, \phi)$ and $\nabla_\phi L(x_i; \theta, \phi)$.
+4. **Update Parameters**: Update $\theta$ and $\phi$ in the gradient direction.
+
+To compute the gradients, we use the reparameterization trick as before, which allows for efficient and low-variance gradient estimates.
+
+This approach leverages amortized inference to efficiently optimize the model parameters and variational parameters across large datasets.
+
 
 <br/><br/>
 # 5. Autoencoder Perspective
