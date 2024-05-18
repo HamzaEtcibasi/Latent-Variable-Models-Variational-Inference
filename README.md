@@ -82,7 +82,7 @@ While the Gaussian distribution may seem simple on its own, the combination of m
 Our aim is to arrive at a robust marginal distribution of $x$ that effectively explains the data. We can express this as:
 
 <p align="center">
-    $`p(x) = \sum_{z} p(x, z) = \sum_{z} p(z) p(x \mid z) = \sum_{k=1}^{K} p(z = k) \mathcal{N}(x; \mu_k, \Sigma_k)`$
+    $p(x) = \sum_{z} p(x, z) = \sum_{z} p(z) p(x \mid z) = \sum_{k=1}^K p(z = k) \mathcal{N}(x; \mu_k, \Sigma_k)$
 </p>
 
 However, instead of employing a fixed number of Gaussian distributions ($K$), we aspire to utilize neural networks to create more expressive models resembling a mixture of an infinite number of Gaussians.
