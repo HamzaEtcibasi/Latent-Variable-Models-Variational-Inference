@@ -273,10 +273,5 @@ This approach leverages amortized inference to efficiently optimize the model pa
 Latent variable models are powerful but come with computational and methodological challenges that require careful handling.
 
 # Acknowledgements
-We follow the slides by Stefano Ermon and Aditya Grover when preparing this topic summary. For more information, visit [Deep Generative Models](https://deepgenerativemodels.github.io/).
-
-
-
-
-
+We followed the slides by Stefano Ermon and Aditya Grover when preparing this topic summary. For more information, visit [Deep Generative Models](https://deepgenerativemodels.github.io/).
 
