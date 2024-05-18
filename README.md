@@ -189,7 +189,7 @@ So, we compute the expectation by integrating over $\epsilon$ after transforming
 
 We illustrate the idea in Figure 4. in 1-D case, and the trick works in multi-dimensional case as well:
 <p align="center">
-  <img src="images/reparam_trick.png" alt="Fig 4. Reparametrization Trick" title="Fig 4. Reparametrization Trick" width="70%">
+  <img src="images/reparam_trick.png" alt="Fig 4. Reparametrization Trick" title="Fig 4. Reparametrization Trick" width="75%">
 </p>
 
 
