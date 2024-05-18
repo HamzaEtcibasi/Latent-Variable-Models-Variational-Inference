@@ -22,7 +22,7 @@ Here:
 - \(x\) is the observed data.
 
 <p align="center">
-  <img src="images/mog.png" alt="Fig 2. Mixture of Gaussians" title="Fig 2. Mixture of Gaussians" width="30%">
+  <img src="images/mog.png" alt="Fig 2. Mixture of Gaussians" title="Fig 2. Mixture of Gaussians" width="37%">
 </p>
 
 #### Generative Process
