@@ -93,6 +93,7 @@ We define the conditional distribution of $x$ given $z$ using neural networks: $
 This formulation enables us to model complex relationships within the data by learning the parameters of the neural networks $\mu_{\theta}$ and $\Sigma_{\theta}$, allowing for a flexible and adaptive representation of the underlying data distribution.
 <br/><br/>
 - **Difference Between Deterministic and Stochastic Latent Representations**
+  
 __In deterministic latent representations__, each input is mapped to a single, fixed latent representation. This mapping is entirely deterministic, meaning that given the same input and model parameters, the resulting latent representation will always be the same. We can think of it as a straightforward one-to-one mapping where each input corresponds to a specific encoded representation.
   
 <p align="center">
