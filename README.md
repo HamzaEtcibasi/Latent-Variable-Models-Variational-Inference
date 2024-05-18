@@ -182,13 +182,9 @@ where $z$ is continuous and follows a Gaussian distribution $\mathcal{N}(\mu, \s
 ### Equivalence in Sampling
 Let's assume $q(z; \phi) = \mathcal{N}(\mu, \sigma^2 I)$ is Gaussian with parameters $\phi = (\mu, \sigma)$. Using the equivalance, we can:
 - Sample $z$ directly from $q_{\phi}(z)$.
-- Sample $\epsilon$ from $\mathcal{N}(0, I)$ and transforming it into $z = \mu + \sigma \epsilon = g(\epsilon; \phi)$.
+- **or equivalently** Sample $\epsilon$ from $\mathcal{N}(0, I)$ and transforming it into $z = \mu + \sigma \epsilon = g(\epsilon; \phi)$.
 
-### Computing Expectation
-
-We compute the expectation using two equivalent methods:
-1. Integrating over $z$ directly.
-2. Integrating over $\epsilon$ after transforming into $z$ using $g(\epsilon; \phi)$.
+So, we compute the expectation by integrating over $\epsilon$ after transforming into $z$ using $g(\epsilon; \phi)$.
 
 ### Gradient Estimation
 
