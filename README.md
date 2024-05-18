@@ -260,6 +260,7 @@ In contrast, a Variational Autoencoder (VAE) incorporates probabilistic principl
 <p align="center">
   <img src="images/vae.png" alt="Fig 7. Variational Autoencoder" title="Fig 7. Variational Autoencoder" width="60%">
 </p>
+
 ### Advantages of VAEs in Generating Diverse and Meaningful Samples
 <br/><br/>
 # 6. Conclusion
