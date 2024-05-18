@@ -145,11 +145,11 @@ Can we solve this problem using Maximum Log-Likelihood?
 Suppose we have a dataset $D$ where for each datapoint our $X$ variables (pixel values) are observed and $Z$ variables are unobserved (e.g., class, etc.).  
 Our maximum log-likelihood is given by:
 <p align="center">
-$\log \prod_{D} P(x;θ)$
+$$\log \prod_{D} P(x;θ)$$
 </p>
 which we can express using latent variables as:
 <p align="center">
-$\log \prod_{D} P(x;θ) = \sum_{D} \log P(x;θ) = \sum_{D} \log \sum_{z} P(x,z;θ)$
+$$\log \prod_{D} P(x;θ) = \sum_{D} \log P(x;θ) = \sum_{D} \log \sum_{z} P(x,z;θ)$$
 </p>
 Is it possible to compute this?
 
@@ -161,11 +161,11 @@ For instance, if we have $Z$ latent features, even if each of them is binary, th
 
 As mentioned in the previous section, we need to make an approximation. This approximation will make our formula tractable. Specifically, we will use the Naive Monte Carlo method to make this      formula tractable. Let's rewrite $p(x)$. We have:
 <p align="center">
-$P_{θ}(x) = \sum_{z} p_{θ}(x,z) = |Z|\sum_{z} \frac{1}{|Z|}p_{θ}(x,z) = |Z| E_{z \sim Uniform(z)}[p_{θ}(x,z)]$
+$$P_{θ}(x) = \sum_{z} p_{θ}(x,z) = |Z|\sum_{z} \frac{1}{|Z|}p_{θ}(x,z) = |Z| E_{z \sim Uniform(z)}[p_{θ}(x,z)]$$
 </p>
 Thus, we have transformed our model into an expectation. However, this expectation is still intractable. To address this, we will use the Naive Monte Carlo method. Our assumption is that these latent features are uniformly distributed. By sampling, we will find an average expectation, i.e.,
 <p align="center">
-$\sum_{z} p_{θ}(x,z) = |Z| \frac{1}{k} \sum_{j=1} p_{θ}(x,z_j)$
+$$\sum_{z} p_{θ}(x,z) = |Z| \frac{1}{k} \sum_{j=1} p_{θ}(x,z_j)$$
 </p>
 In this way, we have made our model tractable. But does this approach serve our purpose?
 
@@ -180,16 +180,16 @@ So we need to clever way to select $Z_j$.
 
 ### Importance Sampling
 
-Now let's try another way, remember our equation: $p_{θ}(x) = \sum_{z} p_{θ}(x,z)$  
-We can add some terms to this equation with preserving the equation, so introduce this term: $\frac{q(z)}{q(z)}$  
-Then our equation will be: $p_{θ}(x) = \sum_{z} p_{θ}(x,z) = \sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)$  
+Now let's try another way, remember our equation: $$p_{θ}(x) = \sum_{z} p_{θ}(x,z)$$  
+We can add some terms to this equation with preserving the equation, so introduce this term: $$\frac{q(z)}{q(z)}$$  
+Then our equation will be: $$p_{θ}(x) = \sum_{z} p_{θ}(x,z) = \sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z)$$  
 Now, we can convert this equation to an expected value term: $$\sum_{z} \frac{q(z)}{q(z)} p_{θ}(x,z) = E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}]$$  
 But, why we do that?  
 The main intution is that, in previous sections we select $Z$ terms from Uniform sampling, but now we sampling $Z$ from $q(z)$. In this way, our $q(z)$ behaves like frequency term. And our $q(z)$ can be anything. For all $q(z)$ the equation holds.  
 Now, we use again Naive Monte Carlo, the equation will be like that:
 
 <p align="center">
-$p_{θ}(x) =  \frac{1}{k} \sum_{j=1}\frac{p_{θ}(x,z^{j})}{q(z^{j})}$
+$$p_{θ}(x) =  \frac{1}{k} \sum_{j=1}\frac{p_{θ}(x,z^{j})}{q(z^{j})}$$
 </p>
 
 Finally we have a method for clever selecting z (latent variables), but what should be $q(z)$? The answer is in the upcoming section.
@@ -205,12 +205,12 @@ With this, we now have an additional feature. We know that the logarithm is a co
 
 First, let's recall Jensen's Inequality. For concave functions, 
 <p align="center">
-$\log ( t*x_1 + (1-t)*x_2) \geq t* \log (x_1) + (1-t)* \log (x_2)$
+$$\log ( t*x_1 + (1-t)*x_2) \geq t* \log (x_1) + (1-t)* \log (x_2)$$
 </p>
 
 Now, let's apply this to our equation.
 <p align="center">
-$\log (E_{z \sim q(z)}[f(z)]) = \log (\sum_{z} q(z)f(z)) \geq \sum_{z} q(z) \log(f(z))$
+$$\log (E_{z \sim q(z)}[f(z)]) = \log (\sum_{z} q(z)f(z)) \geq \sum_{z} q(z) \log(f(z))$$
 </p>
 
 Now, how can we use this?
@@ -222,7 +222,7 @@ $$\log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])  \geq (E_{z \sim q(z)}[\log (
 
 When we look this equation, the first term will not change, it is always equals to $p_{θ}(x,z)$, the value of $q(z)$ is not important, it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term. Because it likes constant.
  
-![img1.png](images/049.png "Fig 1. Latent Variables")
+![img1.png](images/049.png "Figure")
 
 Like in this figure, we try to maximize second term, and because of first term behaves like a constant we can minimize the difference between actual $p_{θ}(x,z)$ and approximated $p_{θ}(x,z)$
 
@@ -231,16 +231,16 @@ So, we can simply say that this second term our lower bound, and from now on, we
 Now, let's rewrite the equation for simplicity:
 
 <p align="center">
-$\log (p(x))  \geq \sum_{z} q(z) \log (\frac{p_{θ}(x,z)}{q(z)}) $
+$$\log (p(x))  \geq \sum_{z} q(z) \log (\frac{p_{θ}(x,z)}{q(z)})$$
 </p>
 <p align="center">
-$\log (p(x))  \geq \sum_{z} q(z) \log (p_{θ}(x,z)) - q(z) \log (q(z))$
+$$\log (p(x))  \geq \sum_{z} q(z) \log (p_{θ}(x,z)) - q(z) \log (q(z))$$
 </p>
 <p align="center">
-$H(q) =  - q(z) \log (q(z))$
+$$H(q) =  - q(z) \log (q(z))$$
 </p>
 <p align="center">
-$\log (p(x))  \geq \sum_{z} q(z) \log (p_{θ}(x,z)) - q(z) \log (q(z))$
+$$\log (p(x))  \geq \sum_{z} q(z) \log (p_{θ}(x,z)) - q(z) \log (q(z))$$
 </p>
 
 ### ELBO’s Role in Variational Inference and Model Training
@@ -249,19 +249,19 @@ As mentioned previous sections, equation holds for all $q(z)$ terms. So let's ch
 Also using this terms give us equality instead of greater equal. Let's look at the equation with $q = p(z|x;θ)$ term.
 
 <p align="center">
-$\sum_{z} q(z) \log (\frac{p(x,z;θ)}{q(z)}) = \sum_{z} p(z|x;θ) \log (\frac{p(x,z;θ)}{ p(z|x;θ)}) $
+$$\sum_{z} q(z) \log (\frac{p(x,z;θ)}{q(z)}) = \sum_{z} p(z|x;θ) \log (\frac{p(x,z;θ)}{ p(z|x;θ)})$$
 </p>
 <p align="center">
-$\sum_{z} p(z|x;θ) \log (\frac{p(x,z;θ)}{ p(z|x;θ)}) = \sum_{z} p(z|x;θ) \log (\frac{ p(z|x;θ) * p(x;θ) }{ p(z|x;θ)}) $
+$$\sum_{z} p(z|x;θ) \log (\frac{p(x,z;θ)}{ p(z|x;θ)}) = \sum_{z} p(z|x;θ) \log (\frac{ p(z|x;θ) * p(x;θ) }{ p(z|x;θ)})$$
 </p>
 <p align="center">
-$\sum_{z} p(z|x;θ) \log (\frac{ p(z|x;θ) * p(x;θ) }{ p(z|x;θ)}) = \sum_{z} p(z|x;θ) \log (p(x;θ))  $
+$$\sum_{z} p(z|x;θ) \log (\frac{ p(z|x;θ) * p(x;θ) }{ p(z|x;θ)}) = \sum_{z} p(z|x;θ) \log (p(x;θ))$$
 </p>
 <p align="center">
-$\sum_{z} p(z|x;θ) \log (p(x;θ)) =  \log (p(x;θ)) \sum_{z} p(z|x;θ)  $
+$$\sum_{z} p(z|x;θ) \log (p(x;θ)) =  \log (p(x;θ)) \sum_{z} p(z|x;θ)$$
 </p>
 <p align="center">
-$\log (p(x;θ)) \sum_{z} p(z|x;θ) = \log (p(x;θ))$
+$$\log (p(x;θ)) \sum_{z} p(z|x;θ) = \log (p(x;θ))$$
 </p>
 
 So, the best $q(z)$ is $p(z|x;θ)$, but what happens if we choose different $q(z)$, can we measure how bad this $q(z)$ ?
@@ -289,7 +289,7 @@ $\log (p(x)) = ELBO + KL[q(z) || p(z|x)]$
 
 So, using KL divergence we can simply calculate the error of our $q(z)$
 
-![img1.png](images/049.png "Fig 1. Latent Variables")
+![img1.png](images/049.png "Figure")
 
 Now, if we look at the figure we mentioned earlier, and the equation we found lastly: $\log (p(x)) = ELBO + KL[q(z) || p(z|x)]$, we can find a way for finding good $q(z)$. In figure the blue line represents our ELBO, while the red line represents our $\log (p(x))$ value. The difference between them gives us our KL divergence. However, the KL divergence is not tractable, and as we mentioned earlier, the $p(x)$ value is constant. Therefore, instead of minimizing the KL divergence, if we try to maximize the ELBO value, we will achieve the same result—minimizing the KL divergence and thus approximating our $p(x)$ value.
 
