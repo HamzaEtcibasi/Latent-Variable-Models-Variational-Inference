@@ -225,7 +225,9 @@ We visualize the process showing the differences between with/without amortizati
 
 In amortized inference, we optimize $\sum_{x_i \in D} L(x_i; \theta, \phi)$ as a function of $\theta$ and $\phi$ using stochastic gradient descent. The likelihood function is defined as:
 
+<p align="center">
 $$L(x; \theta, \phi) = \sum_z q_\phi(z|x) \log p(z, x; \theta) + H(q_\phi(z|x)) = \mathbb{E}_{q_\phi(z|x)} [\log p(z, x; \theta) - \log q_\phi(z|x)]$$
+</p>
 
 ### Optimization Steps
 
