@@ -58,6 +58,10 @@ By following these steps, the Mixture of Gaussians model generates data points t
 
 ## 3. Inference and Marginal Probability
 Suppose we are working with an image during the training phase where the pixel values in the upper half are missing, and our goal is to reconstruct the original image. Let $X$ be our observed random variables, and $Z$ be our unobserved random variables. We have a joint model that utilizes these $Z$. We can express this model as $P(X,Z;θ)$, where $X$ represents the observed variables, $Z$ represents the unobserved random variables, and $θ$ denotes the weights of our model.  
+
+![img1.png](images/048.png "Fig 1. Latent Variables")
+
+
 Can we determine the value of $P(X=x;θ)$ in this manner?  
 Mathematically, yes, we can. However, the process to find this can be expressed as follows: $\sum_{z}P(X=x,Z=z;θ)$, meaning we need to perform this operation for all possible values of $Z$. While this is theoretically possible, it is practically infeasible. This is because, even for a binary image, there are $2^Z$ possible states.
 
@@ -125,12 +129,93 @@ Now, let's take log of previous equation
 With this, we now have an additional feature. We know that the logarithm is a concave function, which means it satisfies Jensen's Inequality. What does this imply and how can we use it?
 
 First, let's recall Jensen's Inequality. For concave functions, 
-
-$\log ( t*x_1 + (1-t)*x_2) \geq t* \log (x_1) + (1-t)* \log (x_2)$
 <p align="center">
 $\log ( t*x_1 + (1-t)*x_2) \geq t* \log (x_1) + (1-t)* \log (x_2)$
 </p>
+
+Now, let's apply this to our equation.
+<p align="center">
+$\log (E_{z \sim q(z)}[f(z)]) = \log (\sum_{z} q(z)f(z)) \geq \sum_{z} q(z) \log(f(z))$
+</p>
+
+Now, how can we use this?
+
+Let put $f(z) = \frac{p_{θ}(x,z)}{q(z)}$, then the equation will be:
+<p align="center">
+$\log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])  \geq (E_{z \sim q(z)}[\log (\frac{p_{θ}(x,z)}{q(z)})]$
+</p>
+ When we look this equation, the first term will not change, it is always equals to $p_{θ}(x,z)$, the value of $q(z)$ is not important, it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term. Because it likes constant.
+ 
+![img1.png](images/049.png "Fig 1. Latent Variables")
+
+Like in this figure, we try to maximize second term, and because of first term behaves like a constant we can minimize the difference between actual $p_{θ}(x,z)$ and approximated $p_{θ}(x,z)$
+
+So, we can simply say that this second term our lower bound, and from now on, we will refer to this term as ELBO (Evidence Lower Bound).
+
+Now, let's rewrite the equation for simplicity:
+
+<p align="center">
+$\log (p(x))  \geq \sum_{z} q(z) \log (\frac{p_{θ}(x,z)}{q(z)}) $
+</p>
+<p align="center">
+$\log (p(x))  \geq \sum_{z} q(z) \log (p_{θ}(x,z)) - q(z) \log (q(z))$
+</p>
+<p align="center">
+$H(q) =  - q(z) \log (q(z))$
+</p>
+<p align="center">
+$\log (p(x))  \geq \sum_{z} q(z) \log (p_{θ}(x,z)) - q(z) \log (q(z))$
+</p>
+
 - **ELBO’s Role in Variational Inference and Model Training**
+As mentioned previous sections, equation holds for all $q(z)$ terms. So let's choose $q = p(z|x;θ)$. Because it makes sense: Sample the most "explanatory" z values.
+
+Also using this terms give us equality instead of greater equal. Let's look at the equation with $q = p(z|x;θ)$ term.
+
+<p align="center">
+$\sum_{z} q(z) \log (\frac{p(x,z;θ)}{q(z)}) = \sum_{z} p(z|x;θ) \log (\frac{p(x,z;θ)}{ p(z|x;θ)}) $
+</p>
+<p align="center">
+$\sum_{z} p(z|x;θ) \log (\frac{p(x,z;θ)}{ p(z|x;θ)}) = \sum_{z} p(z|x;θ) \log (\frac{ p(z|x;θ) * p(x;θ) }{ p(z|x;θ)}) $
+</p>
+<p align="center">
+$\sum_{z} p(z|x;θ) \log (\frac{ p(z|x;θ) * p(x;θ) }{ p(z|x;θ)}) = \sum_{z} p(z|x;θ) \log (p(x;θ))  $
+</p>
+<p align="center">
+$\sum_{z} p(z|x;θ) \log (p(x;θ)) =  \log (p(x;θ)) \sum_{z} p(z|x;θ)  $
+</p>
+<p align="center">
+$\log (p(x;θ)) \sum_{z} p(z|x;θ) = \log (p(x;θ))$
+</p>
+
+So, the best $q(z)$ is $p(z|x;θ)$, but what happens if we choose different $q(z)$, can we measure how bad this $q(z)$ ?
+
+The answer is:
+
+<p align="center">
+$KL[q(z) || p(z|x)]$
+</p>
+<p align="center">
+$= E_{q}[ \log (q(z))] - E_{q}[\log (p(z|x))]$
+</p>
+<p align="center">
+$= -H[q] - E_{q}[\log (\frac{p(x,z)}{p(x)})]$
+</p>
+<p align="center">
+$= E_{q}[\log (p(x))] -  E_{q}[\log (p(x,z))] -H[q]$
+</p>
+<p align="center">
+$= \log (p(x)) -  ELBO$
+</p>
+<p align="center">
+$\log (p(x)) = ELBO + KL[q(z) || p(z|x)]$
+</p>
+
+So, using KL divergence we can simply calculate the error of our $q(z)$
+
+![img1.png](images/049.png "Fig 1. Latent Variables")
+
+Now, if we look at the figure we mentioned earlier, and the equation we found lastly: $\log (p(x)) = ELBO + KL[q(z) || p(z|x)]$, we can find a way for finding good $q(z)$. In figure the blue line represents our ELBO, while the red line represents our $p(x)$ value. The difference between them gives us our KL divergence. However, the KL divergence is not tractable, and as we mentioned earlier, the $p(x)$ value is constant. Therefore, instead of minimizing the KL divergence, if we try to maximize the ELBO value, we will achieve the same result—minimizing the KL divergence and thus approximating our $p(x)$ value.
 
 ## 4. Learning Latent Variable Models
 #### 4.1 Stochastic Variational Inference (SVI)
