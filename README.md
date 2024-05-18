@@ -205,7 +205,7 @@ This technique enables efficient computation of gradients with respect to the va
 
 
 ## 4.3 Amortized Inference
-Performing stochastic variational inference can be costly. At each training stage, to achieve a good approximation, we need to perform gradient descent over the parameters $\phi$ to optimize the Evidence Lower Bound (ELBO) before updating $ \theta$. Without sufficient gradient updates, we risk having a poor lower bound with a large gap, leading to imprecise or noisy updates for $\theta$.
+Performing stochastic variational inference can be costly. At each training stage, to achieve a good approximation, we need to perform gradient descent over the parameters $\phi$ to optimize the Evidence Lower Bound (ELBO) before updating $\theta$. Without sufficient gradient updates, we risk having a poor lower bound with a large gap, leading to imprecise or noisy updates for $\theta$.
 
 This process requires extensive gradient descent on the variational parameters just to make a single gradient update on the model parameters, which is very costly. The solution to this problem is called **amortized inference**.
 
