@@ -20,6 +20,7 @@ In a Mixture of Gaussians model, we have a latent variable \(z\) that determines
 Here:
 - \(z\) is the latent variable.
 - \(x\) is the observed data.
+  
 ![mog.png](images/mog.png "Fig 2. Mixture of Gaussians")
 #### Generative Process
 
