@@ -22,7 +22,6 @@ Here:
 - \(x\) is the observed data.
 <figure>
 ![mog.png](mog.png "Fig 2. Mixture of Gaussians")
-   <figcaption>Fig 2. Mixture of Gaussians</figcaption>
 <figure>
 #### Generative Process
 
