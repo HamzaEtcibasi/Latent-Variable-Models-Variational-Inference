@@ -216,6 +216,12 @@ For instance, if $q(z|x_i)$ are Gaussians with different means $\mu_1, \cdots, \
 
 Amortized inference thus scales efficiently to large datasets by sharing parameters across all data points through the learned function $f_\lambda$.
 
+We visualize the process showing the differences between with/without amortization below:
+<p align="center">
+  <img src="images/amortization.png" alt="Fig 5. With/Without Amortization" title="Fig 5. With/Without Amortization" width="70%">
+</p>
+
+
 <br/><br/>
 # 5. Autoencoder Perspective
 ## 5.1 Comparing VAE with Traditional Autoencoders
