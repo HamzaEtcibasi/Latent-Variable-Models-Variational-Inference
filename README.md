@@ -74,6 +74,7 @@ The Mixture of Gaussians (MoG) model is a versatile and powerful tool in various
 
 By leveraging these advantages, the Mixture of Gaussians model is a powerful tool for understanding and analyzing complex data distributions. **However**, the Mixture of Gaussians model has its limitations. It can be sensitive to initialization, making it prone to local optima. Determining the optimal number of components is challenging, and the model assumes Gaussian distributions, which may not always fit the data accurately. Additionally, computational complexity increases with data dimensionality, and overfitting can occur. Despite these challenges, the model remains valuable for understanding complex data distributions.
 
+
 #### 2.2 Variational Autoencoders (VAEs)
 - **VAEs as a Generative Model**
 
