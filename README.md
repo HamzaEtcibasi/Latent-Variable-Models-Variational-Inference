@@ -167,7 +167,6 @@ The variational distribution $q(z; \phi)$ is tractable, meaning it's easy to sam
 This approach allows us to learn latent variable models efficiently by iteratively optimizing model parameters and variational parameters using stochastic gradient descent.
 
 
-#### 4.2 Reparameterization Trick
 ## 4.2 Reparameterization Trick
 
 The reparameterization trick is a clever technique used in stochastic variational inference to compute gradients with respect to the parameters $\phi$ when dealing with continuous latent variables. Let's break down how it works:
