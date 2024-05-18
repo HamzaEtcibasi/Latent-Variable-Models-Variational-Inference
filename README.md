@@ -116,17 +116,17 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 
 <br/><br/>
 # 3. Inference and Marginal Probability
-#### 3.1 Marginal Likelihood
-- **Importance of Marginal Likelihood in Variational Probabilistic Modeling**
+## 3.1 Marginal Likelihood
+### Importance of Marginal Likelihood in Variational Probabilistic Modeling
 
 ## 3.2 Sampling Techniques
-- **Overview of Monte Carlo Methods for Estimating Marginal Probabilities:**
-  - Naive Monte Carlo
-  - Importance Sampling
+### Overview of Monte Carlo Methods for Estimating Marginal Probabilities:
+### Naive Monte Carlo
+### Importance Sampling
 
 ## 3.3 Evidence Lower Bound (ELBO)
-- **Introduction to ELBO as an Objective Function in VAEs**
-- **ELBO’s Role in Variational Inference and Model Training**
+### Introduction to ELBO as an Objective Function in VAEs
+### ELBO’s Role in Variational Inference and Model Training
 <br/><br/>
 # 4. Learning Latent Variable Models
 ## 4.1 Learning via Stochastic Variational Inference (SVI)
