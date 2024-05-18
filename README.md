@@ -246,10 +246,10 @@ This approach leverages amortized inference to efficiently optimize the model pa
 ## 5.1 Comparing VAE with Traditional Autoencoders
 ### Contrast Between VAEs and Standard Autoencoders in Representation Learning
 <p align="center">
-  <img src="images/ae.png" alt="Fig 6. Autoencoder Architecture" title="Fig 6. Autoencoder Architecture" width="70%">
+  <img src="images/ae.png" alt="Fig 6. Autoencoder Architecture" title="Fig 6. Autoencoder Architecture" width="60%">
 </p>
 <p align="center">
-  <img src="images/vae.png" alt="Fig 7. Variational Autoencoder" title="Fig 7. Variational Autoencoder" width="70%">
+  <img src="images/vae.png" alt="Fig 7. Variational Autoencoder" title="Fig 7. Variational Autoencoder" width="60%">
 </p>
 ### Advantages of VAEs in Generating Diverse and Meaningful Samples
 <br/><br/>
