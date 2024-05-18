@@ -230,7 +230,7 @@ $$\log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])  \geq (E_{z \sim q(z)}[\log (
 When we look this equation, the first term will not change, it is always equals to $p_{θ}(x,z)$, the value of $q(z)$ is not important, it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term. Because it likes constant.
 
 <p align="center">
-  <img src="images/049.png" alt="Fig 6. Evidence Lower Bound" title="Fig 6. Evidence Lower Bound" width="60%">
+  <img src="images/049.png" alt="Fig 6. Evidence Lower Bound" title="Fig 6. Evidence Lower Bound" width="70%">
 </p>
 
 Like in this figure, we try to maximize second term, and because of first term behaves like a constant we can minimize the difference between actual $p_{θ}(x,z)$ and approximated $p_{θ}(x,z)$
