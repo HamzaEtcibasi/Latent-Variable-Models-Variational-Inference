@@ -269,13 +269,12 @@ In contrast, a Variational Autoencoder (VAE) incorporates probabilistic principl
   <img src="images/vae.png" alt="Fig 7. Variational Autoencoder" title="Fig 7. Variational Autoencoder" width="60%">
 </p>
 
-**VAE vs. AE:**
+### VAE vs. AE
   - **Latent Space:** VAE explicitly models the distribution of latent variables, enabling meaningful interpolation and sampling. AE typically lacks such structure.
   - **Regularization:** VAE incorporates a regularization term, promoting disentangled and interpretable representations. AE relies solely on reconstruction error.
   - **Sample Generation:** VAEs can generate diverse samples by sampling from the latent space. AEs are limited to interpolation between training examples.
   - **Robustness to Noise:** VAEs are often more robust to noisy inputs due to the probabilistic nature of their encoding.
 
-### Advantages of VAEs in Generating Diverse and Meaningful Samples
 <br/><br/>
 # 6. Conclusion
 ### Summary of Key Concepts Covered in the Discussion of Latent Variable Models
