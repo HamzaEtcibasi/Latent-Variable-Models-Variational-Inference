@@ -97,7 +97,7 @@ This formulation enables us to model complex relationships within the data by le
 <p align="center">
     $$ z = f(x) $$
 </p>
-Here, $z$ represents the deterministic latent representation, and $f(x)$ denotes the deterministic mapping function from input $x$ to latent representation $z$.
+Here, $ z $ represents the deterministic latent representation, and $f(x)$ denotes the deterministic mapping function from input $x$ to latent representation $z$.
 
 Deterministic latent representations are commonly employed in traditional autoencoders and similar models. While they provide a simple and deterministic way to encode information, they may struggle to capture the inherent variability and uncertainty present in real-world data.
 
