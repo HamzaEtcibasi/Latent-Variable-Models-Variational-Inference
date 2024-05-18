@@ -254,7 +254,7 @@ In contrast, a Variational Autoencoder (VAE) incorporates probabilistic principl
 
 **Training Objective**:
 <p align="center">
-- $$L(x; \theta, \phi) = \mathbb{E}_{q_{\phi}(z|x)}[\log p(x|z; \theta)] - D_{KL}(q_{\phi}(z|x)||p(z))$$
+    $$L(x; \theta, \phi) = \mathbb{E}_{q_{\phi}(z|x)}[\log p(x|z; \theta)] - D_{KL}(q_{\phi}(z|x)||p(z))$$
 </p>
 
 <p align="center">
