@@ -177,6 +177,7 @@ We aim to compute the gradient with respect to $\phi$ of the expectation:
 <p align="center">
 $\mathbb{E}_{z \sim q(z; \phi)} [r(z)] = \int q(z; \phi) \, r(z) \, dz$
 </p>
+
 where $z$ is continuous and follows a Gaussian distribution $\mathcal{N}(\mu, \sigma^2 I)$ with parameters $\phi = (\mu, \sigma)$.
 
 ### Equivalence in Sampling
