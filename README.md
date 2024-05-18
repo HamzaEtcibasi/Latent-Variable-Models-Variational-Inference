@@ -290,7 +290,7 @@ So, using KL divergence we can simply calculate the error of our $q(z)$
 
 ![img1.png](images/049.png "Fig 1. Latent Variables")
 
-Now, if we look at the figure we mentioned earlier, and the equation we found lastly: $\log (p(x)) = ELBO + KL[q(z) || p(z|x)]$, we can find a way for finding good $q(z)$. In figure the blue line represents our ELBO, while the red line represents our $ \log (p(x))$ value. The difference between them gives us our KL divergence. However, the KL divergence is not tractable, and as we mentioned earlier, the $p(x)$ value is constant. Therefore, instead of minimizing the KL divergence, if we try to maximize the ELBO value, we will achieve the same result—minimizing the KL divergence and thus approximating our $p(x)$ value.
+Now, if we look at the figure we mentioned earlier, and the equation we found lastly: $\log (p(x)) = ELBO + KL[q(z) || p(z|x)]$, we can find a way for finding good $q(z)$. In figure the blue line represents our ELBO, while the red line represents our $\log (p(x))$ value. The difference between them gives us our KL divergence. However, the KL divergence is not tractable, and as we mentioned earlier, the $p(x)$ value is constant. Therefore, instead of minimizing the KL divergence, if we try to maximize the ELBO value, we will achieve the same result—minimizing the KL divergence and thus approximating our $p(x)$ value.
 
 <br/><br/>
 # 4. Learning Latent Variable Models
