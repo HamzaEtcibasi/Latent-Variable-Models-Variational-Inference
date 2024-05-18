@@ -36,7 +36,7 @@ Here:
         $p(x \mid z = k) = \mathcal{N}(x \mid \mu_k, \Sigma_k)$
    </p>
 
-BU KISMA DEVAM EDECEĞİM YARIN
+By following these steps, the Mixture of Gaussians model generates data points that can represent complex, multimodal distributions through the combination of multiple Gaussian components.
 
 
 - **Use Cases and Advantages of MoG in Modeling Data Distributions**
