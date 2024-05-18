@@ -187,6 +187,12 @@ Let's assume $q(z; \phi) = \mathcal{N}(\mu, \sigma^2 I)$ is Gaussian with parame
 
 So, we compute the expectation by integrating over $\epsilon$ after transforming into $z$ using $g(\epsilon; \phi)$.
 
+We illustrate the idea in Figure 4. in 1-D case, and the trick works in multi-dimensional case as well:
+<p align="center">
+  <img src="images/reparam_trick.png" alt="Fig 4. Reparametrization Trick" title="Fig 4. Reparametrization Trick" width="60%">
+</p>
+
+
 ### Gradient Estimation
 
 Using the reparameterization trick, we can compute the gradient with respect to $\phi$ as follows:
