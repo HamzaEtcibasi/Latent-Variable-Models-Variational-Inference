@@ -131,14 +131,15 @@ Here, $z$ represents the stochastic latent representation sampled from the distr
 
 Suppose we are working with an image during the training phase where the pixel values in the upper half are missing, and our goal is to reconstruct the original image. Let $X$ be our observed random variables, and $Z$ be our unobserved random variables. We have a joint model that utilizes these $Z$. We can express this model as $P(X,Z;θ)$, where $X$ represents the observed variables, $Z$ represents the unobserved random variables, and $θ$ denotes the weights of our model.  
 
+<p align="center">
 ![img1.png](images/048.png "Fig 1. Latent Variables")
-
+</p>
 
 Can we determine the value of $P(X=x;θ)$ in this manner?  
 Mathematically, yes, we can. However, the process to find this can be expressed as follows: $\sum_{z}P(X=x,Z=z;θ)$, meaning we need to perform this operation for all possible values of $Z$. While this is theoretically possible, it is practically infeasible. This is because, even for a binary image, there are $2^Z$ possible states.
 
 ## 3.1 Marginal Likelihood
-- **Importance of Marginal Likelihood in Variational Probabilistic Modeling**
+### Importance of Marginal Likelihood in Variational Probabilistic Modeling
 
 Can we solve this problem using Maximum Log-Likelihood?  
 Suppose we have a dataset $D$ where for each datapoint our $X$ variables (pixel values) are observed and $Z$ variables are unobserved (e.g., class, etc.).  
