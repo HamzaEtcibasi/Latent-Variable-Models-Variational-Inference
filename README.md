@@ -34,7 +34,7 @@ Here:
 2. **Generate a data point:**
    - Given \( z = k \), sample \( x \) from the corresponding Gaussian distribution.
    <p align="center">
-   \( p(x \mid z = k) = \mathcal{N}(x \mid \mu_k, \Sigma_k) \)
+        $(p(x \mid z = k) = \mathcal{N}(x \mid \mu_k, \Sigma_k))$
    </p>
 
 BU KISMA DEVAM EDECEĞİM YARIN
