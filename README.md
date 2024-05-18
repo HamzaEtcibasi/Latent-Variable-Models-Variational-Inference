@@ -50,7 +50,7 @@ By following these steps, the Mixture of Gaussians model generates data points t
 
 The Mixture of Gaussians (MoG) model is a versatile and powerful tool in various data analysis tasks. Here are some key use cases and advantages of using MoG:
 
-#### **Use Cases**
+#### <u>Use Cases</u>
 
 1. **Clustering:** MoG is commonly used for clustering data into groups. Each Gaussian component can be seen as representing a cluster, allowing for effective identification of subpopulations within the data.
    
@@ -62,7 +62,7 @@ The Mixture of Gaussians (MoG) model is a versatile and powerful tool in various
 
 5. **Speech and Signal Processing:** MoG is applied in modeling different sound patterns or signals, aiding in tasks like speaker identification or noise reduction.
 
-#### **Advantages**
+#### <u>Advantages</u>
 
 1. **Flexibility:** MoG can model a wide range of data distributions by combining multiple Gaussian components, making it suitable for complex datasets.
 
