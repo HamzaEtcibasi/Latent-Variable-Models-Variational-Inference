@@ -10,7 +10,7 @@ Like in Fig 1. suppose we want to generate an image of a dog. We know that dogs 
 - **Importance and Applications in Machine Learning and Statistics**
 - **Motivation Behind Using Latent Variable Models**
 
-## 2. Types of Latent Variables
+## 2. Mixture Models
 #### 2.1 Mixture of Gaussians: A Shallow Latent Variable Model
 
 The Mixture of Gaussians (MoG) model is a probabilistic model that assumes data points are generated from a mixture of several Gaussian distributions. Each Gaussian distribution represents a cluster or component within the overall data distribution. This model is often used for clustering and density estimation.
@@ -75,7 +75,24 @@ The Mixture of Gaussians (MoG) model is a versatile and powerful tool in various
 By leveraging these advantages, the Mixture of Gaussians model is a powerful tool for understanding and analyzing complex data distributions. **However**, the Mixture of Gaussians model has its limitations. It can be sensitive to initialization, making it prone to local optima. Determining the optimal number of components is challenging, and the model assumes Gaussian distributions, which may not always fit the data accurately. Additionally, computational complexity increases with data dimensionality, and overfitting can occur. Despite these challenges, the model remains valuable for understanding complex data distributions.
 
 #### 2.2 Variational Autoencoders (VAEs)
-- **Explanation of VAEs as a Generative Model**
+- **VAEs as a Generative Model**
+
+While the Gaussian distribution may seem simple on its own, the combination of multiple Gaussians can introduce complexity. Consider a scenario where we possess latent factors indicating whether a data point belongs to a certain Gaussian. In such cases, the conditional distribution given these latent factors, denoted as $p(x|k)$, becomes much simpler compared to the original distribution $p(x)$. Although the original distribution might be complex, given the latent factor of each data point, the conditional distribution needed to fit that latent factor would be comparatively simpler. However, since we lack knowledge of these latent factors, the challenge lies in discovering them concurrently while learning these conditional distributions.
+
+Our aim is to arrive at a robust marginal distribution of $x$ that effectively explains the data. We can express this as:
+
+<p align="center">
+    $p(x) = \sum_{z} p(x, z) = \sum_{z} p(z) p(x \mid z) = \sum_{k=1}^{K} p(z = k) \mathcal{N}(x; \mu_k, \Sigma_k)$
+</p>
+
+However, instead of employing a fixed number of Gaussian distributions ($K$), we aspire to utilize neural networks to create more expressive models resembling a mixture of an infinite number of Gaussians.
+
+We can represent this using neural networks as follows:
+Let the latent variable $z$ be drawn from a standard Gaussian distribution: $z \sim \mathcal{N}(0, I)$.
+Define the conditional distribution of $x$ given $z$ using neural networks: $p(x | z) = \mathcal{N}(\mu_{\theta}(z), \Sigma_{\theta}(z))$, where $\mu_{\theta}$ and $\Sigma_{\theta}$ are neural networks parameterized by $\theta$.
+
+This formulation enables us to model complex relationships within the data by learning the parameters of the neural networks $\mu_{\theta}$ and $\Sigma_{\theta}$, allowing for a flexible and adaptive representation of the underlying data distribution.
+
 - **Difference Between Deterministic and Stochastic Latent Representations**
 
 ## 3. Inference and Marginal Probability
