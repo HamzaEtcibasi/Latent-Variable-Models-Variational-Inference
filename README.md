@@ -137,7 +137,7 @@ Stochastic Variational Inference (SVI) is a technique used to optimize a probabi
 
 ## Optimization Objective
 
-The goal is to optimize the likelihood function $L(x_i; \theta, \phi_i)$ as a function of model parameters $\theta$ and variational parameters $\phi_1, ..., \phi_M$. We use (stochastic) gradient descent to achieve this optimization.
+The goal is to optimize the likelihood function $L(x_i; \theta, \phi_i)$ as a function of model parameters $\theta$ and variational parameters $\phi_1, ..., \phi_M$. We use stochastic gradient descent to achieve this optimization.
 
 ## Likelihood Function
 
@@ -158,7 +158,7 @@ where $q(z; \phi_i)$ is the variational distribution over latent variables $z$, 
 ## Gradients Computation
 
 - **Gradient with respect to $\theta$**: Compute the gradient using Monte Carlo sampling to estimate the expectation.
-- **Gradient with respect to $\phi$**: This is more complex as the expectation depends on \( \phi \). We still use Monte Carlo sampling for estimation, but a more specific technique called REINFORCE may be introduced later.
+- **Gradient with respect to $\phi$**: This is more complex as the expectation depends on $\phi$. We still use Monte Carlo sampling for estimation, but with a trick called **the reparametrization trick**.
 
 ## Key Assumption
 
