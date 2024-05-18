@@ -37,7 +37,9 @@ Here:
    </p>
 
 When training a Mixture of Gaussians model, we start with like a single Gaussian fit. As training progresses, assuming the distribution isn't too complex and we have a good estimate for the number of clusters, the model performs effective clustering. Similar points end up with similar z estimates, resulting in soft clustering. This approach is also useful in unsupervised learning. The approach is illustrated in Fig 3 below:
-![mog2.png](images/mog2.png "Fig 3. Mixture of 3 Gaussians")
+<p align="center">
+  <img src="images/mog2.png" alt="Fig 3. Mixture of 3 Gaussians" title="Fig 3. Mixture of 3 Gaussians" width="80%">
+</p>
 
 By following these steps, the Mixture of Gaussians model generates data points that can represent complex, multimodal distributions through the combination of multiple Gaussian components.
 
