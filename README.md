@@ -249,5 +249,12 @@ This approach leverages amortized inference to efficiently optimize the model pa
 <br/><br/>
 # 6. Conclusion
 ### Summary of Key Concepts Covered in the Discussion of Latent Variable Models
+
+1. **Combining Models**: Create more flexible models by combining simpler ones (e.g., mixture of Gaussians).
+2. **Directed Models**: Enable efficient generation through ancestral sampling: sample $z \sim p(z)$, then $x \sim p(x|z; \theta)$.
+3. **Intractable Log-Likelihood**: Direct computation of log-likelihood is generally intractable, making learning difficult.
+4. **Joint Learning**: Learn both the model parameters $\theta$ and an amortized inference component $(\phi$ by optimizing the Evidence Lower Bound (ELBO) for tractability.
+5. **Latent Representations**: Infer latent representations for any $x$ using the variational distribution $q_\phi(z|x)$.
+   
 ### Pros and Cons of Latent Variable Models
 ### Future Directions and Challenges in the Field of Latent Variable Modeling
