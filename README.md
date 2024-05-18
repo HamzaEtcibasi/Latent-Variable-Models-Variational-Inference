@@ -256,6 +256,7 @@ In contrast, a Variational Autoencoder (VAE) incorporates probabilistic principl
 <p align="center">
     $$L(x; \theta, \phi) = \mathbb{E}_{q_{\phi}(z|x)}[\log p(x|z; \theta)] - D_{KL}(q_{\phi}(z|x)||p(z))$$
 </p>
+
 - The first term encourages the reconstructed output $\hat{x}$ to resemble the input $x$ by minimizing the reconstruction error.
 - The second term encourages the latent representation $z$ to follow a prior distribution $p(z)$, promoting a well-structured latent space.
 
