@@ -22,7 +22,6 @@ Here:
 - \(x\) is the observed data.
 
 ![Örnek resim](mog.png "Fig 2. Mixture of Gaussians")
-
 #### Generative Process
 
 1. **Select a Gaussian component:**
