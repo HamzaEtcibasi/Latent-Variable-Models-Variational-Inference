@@ -219,7 +219,8 @@ Let put $f(z) = \frac{p_{θ}(x,z)}{q(z)}$, then the equation will be:
 <p align="center">
 $$\log (E_{z \sim q(z)}[\frac{p_{θ}(x,z)}{q(z)}])  \geq (E_{z \sim q(z)}[\log (\frac{p_{θ}(x,z)}{q(z)})]$$
 </p>
- When we look this equation, the first term will not change, it is always equals to $p_{θ}(x,z)$, the value of $q(z)$ is not important, it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term. Because it likes constant.
+
+When we look this equation, the first term will not change, it is always equals to $p_{θ}(x,z)$, the value of $q(z)$ is not important, it will not change anything. And we know that finding first term is not tractable, so instead of that if we try to maximize second term we can approximate the first term. Because it likes constant.
  
 ![img1.png](images/049.png "Fig 1. Latent Variables")
 
