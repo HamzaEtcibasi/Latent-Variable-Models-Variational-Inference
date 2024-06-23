@@ -405,9 +405,6 @@ In amortized inference, we optimize $\sum_{x_i \in D} L(x_i; \theta, \phi)$ as a
 <p align="center">
 $$L(x; \theta, \phi) = \sum_z q_\phi(z|x) \log p(z, x; \theta) + H(q_\phi(z|x)) = \mathbb{E}_{q_\phi(z|x)} [\log p(z, x; \theta) - \log q_\phi(z|x)]$$
 </p>
-<p align="center">
-$$L(x; \theta, \phi) = \sum_z q_\phi(z|x) \log p(z, x; \theta) + H(q_\phi(z|x)) = \mathbb{E}_{q_\phi(z|x)} \left[ \log p(z, x; \theta) - \log q_\phi(z|x) \right]$$
-</p>
 
 ### Optimization Steps
 
